@@ -1,0 +1,3 @@
+have some sort of nice looking site that has a main content, yet easiliy viewaable area of history.
+start small, do a bit every day and build things up with small improvements.
+

@@ -1,0 +1,43 @@
+
+.body {
+    background-color: #00ff7f;
+    font-size: 32rem;
+}
+
+.button {
+    /* border:none; */
+    background-color: #ff6347;
+    color: yellow;
+    padding: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 32px;
+    margin: auto;
+    cursor: pointer;
+    size: 5rem;
+    margin-bottom: 50px;
+
+}
+
+button:hover span {display:none}
+
+.button:hover {
+    color: salmon;
+    
+}
+
+.button:hover::before {
+    content:"i am an ulgy person ";
+}
+
+.p {
+    text-align: center;
+    color: #ff0000;
+    font-size: 32px;
+}
+
+.a {
+    color:black;
+}
+
