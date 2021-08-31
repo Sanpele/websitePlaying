@@ -1,0 +1,52 @@
+okokok
+
+    display weather data from weather website. make it look a lil preety.
+    perhaps scrolling image.
+
+DOM
+    wtf is it???
+    
+    Docuement Object Model
+    data representation of the objects that comprise the stlkfjsdflkajdfkadf
+    structure of webpage. 
+    programming interface for HTML and XML
+    represents the document as nodes and objects. allows programming languages 
+    to connect comunicate with page.
+    Object Oriented representation of a webpage. 
+    with the DOM, JavaScript can access and change all the elements of an html docuement. 
+    JavaScript gets power to create dynamic HTML.
+    The DOM is a W3C (World Wide Web Consortium) standard.
+    Treats a XML or HTML docuement as a tree structure where each node represents a part of the docuement.
+    
+
+
+okokok
+    jquery is going to be a thing i am thinking. first, what is it?
+
+    Javascript library. 'greatly simplifies javascript programming on the web'...
+    has a number of things such as
+        Selectors 
+            Selects elements to then do stuff to those elements
+        Events or Event Methods
+            trigger or attach a function to an event handler for the selected elements.
+        Effects
+            creates animation effects. 
+        HTML/CSS
+            methods for manipulating the HTML/CSS
+        Traversing
+            moving/finding/accessing elements
+        AJAX
+            AJAX is the 'art' of exchanging data with a server, and update parts of a webpage
+            (without reloading page). api requests?
+        MISC    
+            Miscellaneous Methods 
+        PROPERTIES
+            metadata of webpage. 
+
+        
+WTF does async mean?
+    JavaScript is a synchronous programming language, but because of callback functions we can make it work like an Asynchronous Programming language.
+    WTF is synchronous and asynchronous???
+        When you execute something synchronously, you wait for it to finish before moving on to another task. 
+        When you execute something asynchronously, you can move on to another task before it finishes.
+        so its sorta whether or not you have to wait before doing something important. 
