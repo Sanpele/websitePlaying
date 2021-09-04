@@ -10,17 +10,20 @@
     font-family: 'Unica One', cursive;
 }
 
-.p {
+p.intro {
+    /* margin: auto; */
     text-align: center;
-    color: #ff0000;
-    font-size: 32px;
-    size: 5rem;
+    /* margin: auto; */
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin: 10%;
+    border: 5px;
+    padding: 4rem;
+    border-style: solid;
+    /* padding-right: 20%;
+    padding-left: 20%; */
+    font-family: 'Unica One', cursive;
 }
-
-.a {
-    color:black;
-}
-
 
 .firstImg {
     width: 25%;
@@ -68,24 +71,20 @@ div.listItem {
     /* border:none; */
     background-color: #ff6347;
     color: yellow;
-    padding: 50px;
     text-align: center;
     text-decoration: none;
     display: block;
-    font-size: 32px;
+    /* font-size: 300%; */
     margin: auto;
     cursor: pointer;
     size: 5rem;
-    margin-bottom: 50px;
-
+    height: 10%;
+    border: 10px solid green;
 }
 
 button:hover span {display:none}
 
 .button:hover {
-    color: rgb(243, 42, 20);    
-}
-
-.button:hover::before {
-    content:"i am an ulgy person ";
+    color: rgb(243, 42, 20);
+    
 }
