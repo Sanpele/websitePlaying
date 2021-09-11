@@ -9,3 +9,5 @@ Storing / displaying nice golf course images in a nice way.
 
 graphing / doing something with covid data from national / provincial API.
 
+anything i can think of that is cool
+
