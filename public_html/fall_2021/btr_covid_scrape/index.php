@@ -1,5 +1,7 @@
 <?php
 
+require_once("covidDataObj.php");
+
 echo "<p> Hello There </p>";
 
 $file = fopen("info.txt","r");
@@ -31,6 +33,8 @@ curl_close($ch);
 #
 # now i need to parse the html to hopefully extract data i want
 
+$header = fopen("header.html", "r") or die("unable to open file D");
+echo fread($header, filesize("header.html"));
 
 $dom = new DomDocument();
 @$dom-> loadHTML($response);
@@ -88,7 +92,7 @@ function get_val_before($entire, $after, $sample) {
 //	echo "Length = " . $proper_len . "<br>";
 //	echo "strpos = " . $pos . "<br>";
 
-	$offset = $pos - $proper_len;
+	$offset = $pos - $proper_len - 1;
 
 //	echo "offset= " . $offset. "<br>";
 
@@ -119,12 +123,11 @@ $current_wpg_pos = get_val_after($whole, "provincially and ", "12.6");
 $cases_second = get_val_before($whole, "cases today", "123");
 
 
-//echo "Date = $current_date"."<br>";
-//echo "prov test rate = $current_prov_pos"."<br>";
-//echo "wpg test rate = $current_wpg_pos"."<br>";
-//echo "corrected # cases = $current_cases"."<br>";
-//echo "second attempt cases = $cases_second" . "<br>";
-
+echo "Date = $current_date"."<br>";
+echo "prov test rate = $current_prov_pos"."<br>";
+echo "wpg test rate = $current_wpg_pos"."<br>";
+// echo "corrected # cases = $current_cases"."<br>";
+echo "second attempt cases = $cases_second" . "<br>";
 
 $days_in_month = array ( 
 	1 => 31,
@@ -153,6 +156,11 @@ for ($i = 1; $i < date('m', time()); $i++) {
 }
 $days_since += date('d', time());
 $date_id += 86400 * $days_since;
+
+// Test Covid Object :D
+$covid_today = new CovidData($date_id, $current_date, $current_prov_pos, $current_wpg_pos, $cases_second);
+
+echo '<p class="p">' . strval($covid_today) . '</p>';
 
 //echo "timestamp = " . time() . "<br>";
 //echo "unique date id = $date_id <br>";
@@ -218,6 +226,9 @@ if ($result->num_rows > 0) {
 	}
 	
 }
+
+$footer = fopen("footer.html", "r") or die("unable to open file you absolute human");
+echo fread($footer, filesize("footer.html"));
 
 echo "Finished doing things for now, thanks" . "<br>";
 
