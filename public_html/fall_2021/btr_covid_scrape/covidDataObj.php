@@ -2,11 +2,11 @@
 
 class CovidData {
 
-    public $id;
-    public $date;
-    public $prov_test_rate;
-    public $wpg_test_rate;
-    public $todays_cases;
+    public $id; // Unique identifer each day so we don't have repeated values for date.
+    public $date; // String date. YYYY-MM-DD
+    public $prov_test_rate; // provincial test rate %
+    public $wpg_test_rate; // winnipeg test rate %
+    public $todays_cases; // number of new cases recorded today
 
     public function __construct($id, $date, $prov, $wpg, $today) {
         $this->id = $id;
