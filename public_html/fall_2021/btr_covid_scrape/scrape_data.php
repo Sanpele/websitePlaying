@@ -80,7 +80,7 @@ function get_val_after($entire, $prev, $sample, $bug) {
     return $date_str;
 }
 
-function get_val_before($entire, $after, $sample) {
+function get_val_before($entire, $after, $sample, $bug) {
 
 	$proper_len = strlen($sample);
 	$pos = strpos($entire, $after);	
@@ -105,7 +105,23 @@ function get_val_before($entire, $after, $sample) {
 
 }
 
+function gen_date_id() {
+	$date_id = 31536000 * date('y', time());
+
+	$days_since = 0;
+	for ($i = 1; $i < date('m', time()); $i++) {
+		$days_since += $days_in_month[$i];	
+	}
+	$days_since += date('d', time());
+	$date_id += 86400 * $days_since;
+
+	return $date_id;
+}
+
 function parse_document($bug) {
+
+	$response = get_document();
+
 	$dom = new DomDocument();
 	@$dom-> loadHTML($response);
 	$xpath = new DOMXpath($dom);
@@ -120,12 +136,16 @@ function parse_document($bug) {
 	$check_str = substr($whole, $check_pos+strlen("rate is "));
 	#echo "check_str = $check_str"."<br>";
 	
-	$current_date = get_val_after($whole, "Last updated: ", "September 81, 2021");
-	$current_prov_pos = get_val_after($whole, "rate is ", "10.5");
-	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6");
+	$current_date = get_val_after($whole, "Last updated: ", "September 81, 2021", $bug);
+
+	// Check date Matches todays date, consider generating date with php to have nice format
+
+
+	$current_prov_pos = get_val_after($whole, "rate is ", "10.5", $bug);
+	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
 	// $current_cases = get_val_after($whole, "cases today", "485");
 	
-	$cases_second = get_val_before($whole, "cases today", "123");
+	$cases_second = get_val_before($whole, "cases today", "123", $bug);
 
 	if ($bug == TRUE) {
 		echo "Date = $current_date"."<br>";
@@ -135,32 +155,10 @@ function parse_document($bug) {
 		echo "second attempt cases = $cases_second" . "<br>";
 	}
 
+	$date_id = gen_date_id();
+
 	return $covid_today = new CovidData($date_id, $current_date, $current_prov_pos, $current_wpg_pos, $cases_second);
 
 }
-
-
-
-
-
-
-function gen_date_id() {
-	$date_id = 31536000 * date('y', time());
-
-	$days_since = 0;
-	for ($i = 1; $i < date('m', time()); $i++) {
-		$days_since += $days_in_month[$i];	
-	}
-	$days_since += date('d', time());
-	$date_id += 86400 * $days_since;
-
-	return $date_id;
-}
-
-
-
-// Test Covid Object :D
-
-echo '<p class="p">' . strval($covid_today) . '</p>';
 
 ?>

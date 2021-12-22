@@ -4,7 +4,8 @@
 $topics = array(
 
 	"Covid Scrape with MYSQL" => "btr_covid_scrape/index.php",
-	"St Charles Picture Display" => "charles_pictures/index.php"
+	"St Charles Picture Display" => "charles_pictures/index.php",
+	"Christmas Presents" => "christmas/index.php?person=all",
 
 );
 
@@ -13,7 +14,7 @@ function makeButtons($buttons) {
 
 	$html = '<div class="list">';
 	foreach ($buttons as $k => $v) {		 
-		$html .= '<div class="listItem"> <a class="button" href="' . $v. '">' . $k. ' </a></div>';
+		$html .= '<div class="listItem"> <a class="button" href="' . $v. '">' . $k . ' </a></div>';
 	}	
 	$html .= "</div>";
 	echo $html;
