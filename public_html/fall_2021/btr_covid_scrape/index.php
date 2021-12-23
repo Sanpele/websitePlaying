@@ -4,6 +4,8 @@ require_once("covidDataObj.php");
 require_once("mysql_impl.php");
 require_once("scrape_data.php");
 
+$db_info = "mysql_info.txt";
+
 echo "<p class = 'p'> Hello There";
 
 $header = fopen("header.html", "r") or die("unable to open file D");
@@ -12,15 +14,11 @@ fclose($header);
 
 $covid_today = parse_document(FALSE);
 
-echo "<p class = 'p'> RUNNING SCRAPER MODULE BELOW.<br>";
-echo $covid_today;
+// echo "<p class = 'p'> RUNNING SCRAPER MODULE BELOW.<br>";
 
-$servername = "colinwaugh.com";
-$username = "u47y5qzsjrvxm";
-$password = "2@22i2c@h2>e";
-$dbname = "dbvheujc1qg3qq";
+// echo $covid_today;
 
-$DB = new mysql_table($servername, $username, $password, $dbname);
+$DB = new mysql_table($db_info);
 
 $DB->insert($covid_today);
 

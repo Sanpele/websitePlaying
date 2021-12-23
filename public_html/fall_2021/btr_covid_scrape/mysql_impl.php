@@ -11,25 +11,30 @@ class mysql_table implements db_template {
     
     private $conn;
 
+    private $tableName = covidAttempt;
+
     
-    public function __construct($ser, $usr, $pas, $dbn) {
-        $this->servername = $ser;
-        $this->username = $usr;
-        $this->password = $pas; 
-        $this->dbname = $dbn;
+    public function __construct($init) {
 
-        $this->conn = new mysqli($servername, $username, $password, $dbname);
+        $file = fopen($init,"r");
+        $this->servername = trim(fgets($file));
+        $this->username = trim(fgets($file));
+        $this->password = trim(fgets($file));
+        $this->dbname = trim(fgets($file));
+        fclose($file);
 
-        $sql = "CREATE TABLE IF NOT EXISTS covid_scrape2 (
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+
+        $sql = "CREATE TABLE IF NOT EXISTS $this->tableName (
             id INT(9) NOT NULL PRIMARY KEY,
-            today_date DATE,
             prov_rate DECIMAL(2,1) NOT NULL, 
             wpg_rate DECIMAL(2,1) NOT NULL,
-            daily_num int(4) NOT NULL
+            daily_num int(4) NOT NULL,
+            today_date DATE
         )";
         
         if ($this->conn->query($sql) === TRUE) {
-            echo "Table Created or maybe already there<br>";
+            // echo "Table Created or maybe already there<br>";
         }
         else {
             echo "TABLE CREATION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
@@ -39,14 +44,14 @@ class mysql_table implements db_template {
 
     public function insert ($CovidDataObj) {
 
-        $check_already = $this->conn->query("SELECT * from covid_scrape2 WHERE id = '$date_id'");
+        $check_already = $this->conn->query("SELECT * from $this->tableName WHERE id = $CovidDataObj->id");
 
         if (mysqli_num_rows($check_already) > 0) {
-            echo "<p class = 'p'> Data already recorded today<br>";
+            // echo "<p class = 'p'> Data already recorded today <br>";
         }
         else {
-            $sql = "INSERT INTO covid_scrape2 (id, today_date, prov_rate, wpg_rate, daily_num)
-                VALUES ('$CovidDataObj->id', '$CovidDataObj->date', '$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases')";
+            $sql = "INSERT INTO covidAttempt (id, prov_rate, wpg_rate, daily_num, today_date)
+                VALUES ('$CovidDataObj->id', '$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->date')";
 
             if ($this->conn->query($sql) === TRUE) {
                 echo "<p class = 'p'> New Record Created Succesfully<br>";
@@ -55,7 +60,6 @@ class mysql_table implements db_template {
                 echo "<p class = 'p'> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
             }
         }
-
     }
 
     public function get ($id) {
@@ -67,20 +71,18 @@ class mysql_table implements db_template {
     }
 
     public function getAll () {
-
-
-
-        $sql = "SELECT * FROM covid_scrape2";
+        $sql = "SELECT * FROM $this->tableName";
         $result = $this->conn->query($sql);
 
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()){ 	
                 echo "<br><br>";
                 echo "id				: " . $row["id"] . "<br>";
-                echo "date				: " . $row["today_date"] . "<br>";
                 echo "provincial rate	: " . $row["prov_rate"] . "<br>";
                 echo "wpg rate			: " . $row["wpg_rate"] . "<br>";
                 echo "todays cases		: " . $row["daily_num"] . "<br>";
+                echo "date				: " . $row["today_date"] . "<br>";
+                echo "<br>";
             }
         }
     }

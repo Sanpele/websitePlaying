@@ -136,7 +136,9 @@ function parse_document($bug) {
 	$check_str = substr($whole, $check_pos+strlen("rate is "));
 	#echo "check_str = $check_str"."<br>";
 	
-	$current_date = get_val_after($whole, "Last updated: ", "September 81, 2021", $bug);
+	$current_date = date("Y-m-d");
+
+	// echo "NEW CURRENT DATE" . $current_date . "<-----";
 
 	// Check date Matches todays date, consider generating date with php to have nice format
 

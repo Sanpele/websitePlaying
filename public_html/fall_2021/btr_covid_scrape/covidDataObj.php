@@ -18,10 +18,10 @@ class CovidData {
 
     public function __toString() {
         $out = "id				: " . $this->id . "<br>" . 
-        "date           	: " . $this->date . "<br>" . 
 		"provincial rate	: " . $this->prov_test_rate . "<br>" . 
 		"wpg rate			: " . $this->wpg_test_rate . "<br>" . 
-		"todays cases		: " . $this->todays_cases . "<br>";
+		"todays cases		: " . $this->todays_cases . "<br>" .
+        "date           	: " . $this->date . "<br>";
         return $out;
     }
 }

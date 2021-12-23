@@ -3,28 +3,28 @@
 // topics
 $people = array(
 
-	"general" => 0,
-	"Liam" => 1,
-	"Mom_Dad" => 2,
-	"Grandma_Grampa" => 3,
-	"Anne_Zev" => 4,
-	"Patrick_Cristine" => 5,
-	"testing" => 0,
-	"all" => 0,
-
+	"general" => array(0, "this shouldent be diisplayed"),
+	"L" => array(1, "Liam "),
+	"M_D" => array(2, "Mom & Dad"),
+	"G_G" => array(3, "Grandma & Grampa"),
+	"A_Z" => array(4, "Anne & Zev"),
+	"P_C" => array(5, "Patric & Cristine"),
+	"testing" => array(0, "this shouldent be diisplayed"),
+	"all" => array(0, "All"),
 );
 
 $pictures = array (
-	array("sunrise_0.jpg","sunrise_2.jpg","sunrise_2.jpg"),
-	array("nother_0.jpg","nother_2.jpg","nother_2.jpg"),
-	array("yeller_0.jpg","yeller_2.jpg","yeller_2.jpg"),
-	array("mirror_0.jpg","mirror_2.jpg","mirror_2.jpg"),
-	array("strife_0.jpg","strife_2.jpg","strife_2.jpg"),
+	array("sunrise_0.jpg","sunrise_2.jpg","sunrise_3.jpg"),
+	array("nother_0.jpg","nother_2.jpg","nother_3.jpg"),
+	array("yeller_0.jpg","yeller_2.jpg","yeller_3.jpg"),
+	array("mirror_0.jpg","mirror_2.jpg","mirror_3.jpg"),
+	array("strife_0.jpg","strife_2.jpg","strife_3.jpg"),
+	array("bubble_0.jpg","bubble_2.jpg","bubble_3.jpg"),
+	array("tree_0.jpg","tree_2.jpg","tree_3.jpg"),
 );
 
 $header = fopen("header.html", "r") or die("unable to open file D;");
 echo fread($header, filesize("header.html"));
-
 
 $person;
 
@@ -35,7 +35,7 @@ else {
 	$person = "general";
 }
 
-echo '<p class="p">Merry Christmas ' . $person . '! </p>';
+echo '<p class="p">Merry Christmas + Happy Holidays ' . $people[$person][1] . '! </p>';
 
 echo '<p class="p">Personal, unique and touching msg</p>';
 
@@ -46,21 +46,33 @@ echo '<p class="actual_text">
 
 	The second column are the images produced from a nifty Processing program that can be found near the bottom of https://processing.org/tutorials/pixels </br> </br>
 
-	Finally, to get the column 3 result I took the column 2 images and ordered a 8 x 8 inch canvas print from staples then took pictures of them. </br> </br>
+	Finally, to get column 3 I ordered ordered a 8 x 8 inch canvas print from staples then took pictures of them with a camera. </br> </br>
+
+	So really, this gift is a canvas print of a divined image of a picture, and you are viewing a Image of an Image of the canvas... </br> </br>
+
+	p.s. If you want to see all the images, use this URL instead : www.colinwaugh.com/fall_2021/christmas/index.php?person=all
 </p>'; 
 
 if ($person != "all") { // just display one set of images
 
-	$index = $people[$person];
+	$index = $people[$person][0];
 	$addon = "pictures/";
 
 	$html = '<div class="row">';
-	// loop over corresponding 4 pictures
-	foreach($pictures[$index] as $value) {
-		$html .= '<div class="column">';
-		$html .= '<img class="picture_list" src="' . $addon.$value . '" alt = "Picture Sequence" style="width: 100%">';
-		$html .= '</div>';
-	}
+
+	$html .= '<div class="column">';
+	$html .= '<img class="picture_list_1" src="' . $addon.$pictures[$index][0] . '" alt = "Picture Sequence" style="width: 100%">';
+	$html .= '</div>';
+
+	$html .= '<div class="column">';
+	$html .= '<img class="picture_list_2" src="' . $addon.$pictures[$index][1] . '" alt = "Picture Sequence" style="width: 100%">';
+	$html .= '</div>';
+
+	$html .= '<div class="column">';
+	$html .= '<img class="picture_list_3" src="' . $addon.$pictures[$index][2]. '" alt = "Picture Sequence" style="width: 100%">';
+	$html .= '</div>';
+
+
 	$html .= "</div>";
 	echo $html;
 
@@ -73,12 +85,21 @@ else { // diplay all imgs
 
 		$html = '<div class="row">';
 		// loop over corresponding 4 pictures
-		foreach($arr as $value) {
-			$html .= '<div class="column">';
-			$html .= '<img class="picture_list" src="' . $addon.$value . '" alt = "Picture Sequence" style="width: 100%">';
-			$html .= '</div>';
-		}
+
+		$html .= '<div class="column">';
+		$html .= '<img class="picture_list_1" src="' . $addon.$arr[0] . '" alt = "Picture Sequence" style="width: 100%">';
+		$html .= '</div>';
+	
+		$html .= '<div class="column">';
+		$html .= '<img class="picture_list_2" src="' . $addon.$arr[1] . '" alt = "Picture Sequence" style="width: 100%">';
+		$html .= '</div>';
+	
+		$html .= '<div class="column">';
+		$html .= '<img class="picture_list_3" src="' . $addon.$arr[2]. '" alt = "Picture Sequence" style="width: 100%">';
+		$html .= '</div>';
+
 		$html .= "</div>";
+
 		echo $html;
 	}
 
