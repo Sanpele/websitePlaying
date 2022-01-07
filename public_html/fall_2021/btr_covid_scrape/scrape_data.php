@@ -86,7 +86,7 @@ function get_val_before($entire, $after, $sample, $bug) {
 	$pos = strpos($entire, $after);	
 
 	while ($entire[$pos - $proper_len] !== " ") {
-		echo "Looping " . $entire[$pos - $proper_len];
+		// echo "Looping " . $entire[$pos - $proper_len];
 		$proper_len += 1;
 	}
 
@@ -134,6 +134,8 @@ function gen_date_id() {
 
 function parse_document($bug) {
 
+	// echo "<p class='p'> PARSING IS STARTING";
+
 	$response = get_document();
 
 	$dom = new DomDocument();
@@ -145,23 +147,35 @@ function parse_document($bug) {
 	$whole = $current->item(1)->nodeValue."<br>";
 	$whole = str_replace("\xc2\xa0", ' ', $whole);
 	
-	$check_pos = strpos($whole, "rate is ");
-	#echo $check_pos."<br>";
-	$check_str = substr($whole, $check_pos+strlen("rate is "));
-	#echo "check_str = $check_str"."<br>";
-	
-	$current_date = date("Y-m-d");
-
-	// echo "NEW CURRENT DATE" . $current_date . "<-----";
 
 	// Check date Matches todays date, consider generating date with php to have nice format
 
+	// Grab the day number in current month 
+	$doc_date = get_val_after($whole, "Last updated: January ", "52", $bug);
+	$current_day = date("d");
+
+	$doc_date = intval($doc_date);
+	$current_day = intval($current_day);
+
+	echo "<br>Doc Date = " . $doc_date;
+	echo "<br>Current Date = " . $current_day;
+
+	// whether we updated today
+	if ($doc_date === $current_day) {
+		echo "<p class='p'>" . "STRING DATE COMP TRUE";
+	}
+	else {
+		echo "<p class='p'>" . "STRING DATE COMP FALSE";
+
+	}
+
+	$current_date = date("Y-m-d");
 
 	$current_prov_pos = get_val_after($whole, "rate is ", "10.5", $bug);
 	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
 	// $current_cases = get_val_after($whole, "cases today", "485");
 	
-	$cases_second = get_val_before($whole, "cases today", "123", TRUE);
+	$cases_second = get_val_before($whole, "cases today", "123", $bug);
 
 	if ($bug == TRUE) {
 		echo "Date = $current_date"."<br>";

@@ -14,6 +14,8 @@ fclose($header);
 
 $covid_today = parse_document(FALSE);
 
+echo "<br>" . $covid_today;
+
 // echo "<p class = 'p'> RUNNING SCRAPER MODULE BELOW.<br>";
 
 // echo $covid_today;
@@ -21,12 +23,6 @@ $covid_today = parse_document(FALSE);
 $DB = new mysql_table($db_info);
 
 $DB->insert($covid_today);
-
-$DB->getAll();
-
-$DB->delete(694310400);
-
-echo "<p class='p'> PRINTING AGAIN";
 
 $DB->getAll();
 

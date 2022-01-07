@@ -92,6 +92,10 @@ class mysql_table implements db_template {
 
     }
 
+
+    /*
+        should prob return a list of covidDataObj, will need to unpack rows
+    */
     public function getAll () {
         $sql = "SELECT * FROM $this->tableName";
         $result = $this->conn->query($sql);
