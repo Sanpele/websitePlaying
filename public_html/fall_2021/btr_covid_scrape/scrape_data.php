@@ -132,7 +132,7 @@ function gen_date_id() {
 	return $date_id;
 }
 
-function parse_document($bug) {
+function parse_document() {
 
 	// echo "<p class='p'> PARSING IS STARTING";
 
@@ -146,28 +146,43 @@ function parse_document($bug) {
 	
 	$whole = $current->item(1)->nodeValue."<br>";
 	$whole = str_replace("\xc2\xa0", ' ', $whole);
+
+	return $whole;
+
+}
 	
 
-	// Check date Matches todays date, consider generating date with php to have nice format
+/*
+	Checks if the date in $whole is different from our last recorded date. 
+
+	
+	return : int, -1 if update is old. if update new return date of update
+*/
+function check_new_update($whole, $bug) {
 
 	// Grab the day number in current month 
 	$doc_date = get_val_after($whole, "Last updated: January ", "52", $bug);
-	$current_day = date("d");
-
 	$doc_date = intval($doc_date);
-	$current_day = intval($current_day);
 
-	echo "<br>Doc Date = " . $doc_date;
-	echo "<br>Current Date = " . $current_day;
+	// Read the latest update from file
+	$update_file = fopen("last_update.txt", "r") or die("Unable to open last_update");
+	$last_update = intval(fgetc($update_file));
+	fclose($update_file);
 
 	// whether we updated today
-	if ($doc_date === $current_day) {
-		echo "<p class='p'>" . "STRING DATE COMP TRUE";
+	if ($doc_date === $last_update) {
+		return -1;
 	}
 	else {
-		echo "<p class='p'>" . "STRING DATE COMP FALSE";
-
+		return $doc_date;
 	}
+}
+
+/*
+	Parse provided document and return a covidDataObj with data from document.
+	
+*/
+function get_data($whole, $update_date, $bug) {
 
 	$current_date = date("Y-m-d");
 
@@ -186,6 +201,10 @@ function parse_document($bug) {
 	}
 
 	$date_id = gen_date_id();
+
+	$update_file = fopen("last_update.txt", "w") or die("Unable to open last_update");
+	fwrite($update_file, $update_date);
+	fclose($update_file);
 
 	return $covid_today = new CovidData($date_id, $current_date, $current_prov_pos, $current_wpg_pos, $cases_second);
 

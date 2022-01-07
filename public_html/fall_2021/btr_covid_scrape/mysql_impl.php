@@ -27,8 +27,8 @@ class mysql_table implements db_template {
 
         $sql = "CREATE TABLE IF NOT EXISTS $this->tableName (
             id INT(9) NOT NULL PRIMARY KEY,
-            prov_rate DECIMAL(2,1) NOT NULL, 
-            wpg_rate DECIMAL(2,1) NOT NULL,
+            prov_rate DECIMAL(3,1) NOT NULL, 
+            wpg_rate DECIMAL(3,1) NOT NULL,
             daily_num int(4) NOT NULL,
             today_date DATE
         )";
@@ -81,13 +81,12 @@ class mysql_table implements db_template {
 
         $sql = "DELETE FROM $this->tableName where id=$id";
         $result = $this->conn->query($sql);
-        # CHECK RESULT SOMEHOW
 
         if ($result === TRUE) {
-            echo "Record Deleted Succssfully";
+            echo "<br>" . "Record Deleted Succssfully";
         }
         else {
-            echo "Error deleting record: " . $result->error;
+            echo "<br>" . "Error deleting record: " . $result->error;
         }
 
     }
