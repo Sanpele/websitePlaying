@@ -82,8 +82,16 @@ function get_val_after($entire, $prev, $sample, $bug) {
 
 function get_val_before($entire, $after, $sample, $bug) {
 
-	$proper_len = strlen($sample);
+	$proper_len = 2;
 	$pos = strpos($entire, $after);	
+
+	while ($entire[$pos - $proper_len] !== " ") {
+		echo "Looping " . $entire[$pos - $proper_len];
+		$proper_len += 1;
+	}
+
+	$proper_len -= 2;
+
 	if ($bug == TRUE) {
 		echo "Length = " . $proper_len . "<br>";
 		echo "strpos = " . $pos . "<br>";
@@ -95,6 +103,7 @@ function get_val_before($entire, $after, $sample, $bug) {
 	}
 
 	$str = substr($entire, $offset, $proper_len);
+
 	if (is_null($str)) {
 		echo "Something went wrong with get_val_before, fix eeeet"."<br>";
 	}
@@ -147,7 +156,7 @@ function parse_document($bug) {
 	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
 	// $current_cases = get_val_after($whole, "cases today", "485");
 	
-	$cases_second = get_val_before($whole, "cases today", "123", $bug);
+	$cases_second = get_val_before($whole, "cases today", "123", TRUE);
 
 	if ($bug == TRUE) {
 		echo "Date = $current_date"."<br>";

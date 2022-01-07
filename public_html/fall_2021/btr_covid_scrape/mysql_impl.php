@@ -68,6 +68,10 @@ class mysql_table implements db_template {
 
     public function delete ($id) {
 
+        $sql = "DELETE $id FROM $this->tableName";
+        $result = $this->conn->query($sql);
+        # CHECK RESULT SOMEHOW
+
     }
 
     public function getAll () {
@@ -87,9 +91,6 @@ class mysql_table implements db_template {
         }
     }
 
-    public function __toString() {
-
-    }
 }
 
 ?>
