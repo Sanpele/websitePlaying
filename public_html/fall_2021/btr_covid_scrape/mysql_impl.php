@@ -11,7 +11,7 @@ class mysql_table implements db_template {
     
     private $conn;
 
-    private $tableName = "covidAttempt";
+    private $tableName = "covidAttemptTest";
 
     
     public function __construct($init) {

@@ -200,13 +200,34 @@ function get_data($whole, $update_date, $bug) {
 		echo "second attempt cases = $cases_second" . "<br>";
 	}
 
+	// unique value going to be DB id
 	$date_id = gen_date_id();
+
+	// current day as int
+	$curr_day = intval(date('d', time()));
 
 	$update_file = fopen("last_update.txt", "w") or die("Unable to open last_update");
 	fwrite($update_file, $update_date);
+	fwrite($update_file, $curr_day);
 	fclose($update_file);
 
 	return $covid_today = new CovidData($date_id, $current_date, $current_prov_pos, $current_wpg_pos, $cases_second);
+
+}
+
+/*
+	checks file to see if we have updated file today
+*/
+function check_scrape() {
+
+	$curr_day = intval(date('d', time()));
+
+	$update_file = fopen("last_update.txt", "r") or die("Unable to open last_update");
+	fgetc($update_file); 
+	$date_last_check = intval(fgetc($update_file));
+	fclose($update_file);
+
+	return $curr_day === $date_last_check;
 
 }
 
