@@ -11,7 +11,7 @@ class mysql_table implements db_template {
     
     private $conn;
 
-    private $tableName = covidAttempt;
+    private $tableName = "covidAttempt";
 
     
     public function __construct($init) {
@@ -50,7 +50,7 @@ class mysql_table implements db_template {
             // echo "<p class = 'p'> Data already recorded today <br>";
         }
         else {
-            $sql = "INSERT INTO covidAttempt (id, prov_rate, wpg_rate, daily_num, today_date)
+            $sql = "INSERT INTO $this->tableName (id, prov_rate, wpg_rate, daily_num, today_date)
                 VALUES ('$CovidDataObj->id', '$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->date')";
 
             if ($this->conn->query($sql) === TRUE) {
@@ -63,14 +63,32 @@ class mysql_table implements db_template {
     }
 
     public function get ($id) {
+        $sql = "SELECT FROM $this->tableName where id=$id";
+        $result = $this->conn->query($sql);
+        # CHECK RESULT SOMEHOW
 
+        if ($result === TRUE) {
+            echo "Record RETRIEVED Succssfully";
+        }
+        else {
+            echo "Error retriving record: " . $result->error;
+        }
+
+        return $result;
     }
 
     public function delete ($id) {
 
-        $sql = "DELETE $id FROM $this->tableName";
+        $sql = "DELETE FROM $this->tableName where id=$id";
         $result = $this->conn->query($sql);
         # CHECK RESULT SOMEHOW
+
+        if ($result === TRUE) {
+            echo "Record Deleted Succssfully";
+        }
+        else {
+            echo "Error deleting record: " . $result->error;
+        }
 
     }
 

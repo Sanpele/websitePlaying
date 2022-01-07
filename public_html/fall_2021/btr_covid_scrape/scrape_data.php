@@ -110,7 +110,12 @@ function get_val_before($entire, $after, $sample, $bug) {
 	if ($bug == TRUE) {
 		echo "Str = " . $str . "<br>";
 	}
-	return rtrim($str);
+
+	$str = rtrim ($str); # get rid of any whitespace
+
+	$goodString = str_replace(',','', $str); # remove comma if present in string
+
+	return $goodString;
 
 }
 

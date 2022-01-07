@@ -24,6 +24,12 @@ $DB->insert($covid_today);
 
 $DB->getAll();
 
+$DB->delete(694310400);
+
+echo "<p class='p'> PRINTING AGAIN";
+
+$DB->getAll();
+
 // LOOP OVER TABLE, PRINT ALL VALUES
 
 
