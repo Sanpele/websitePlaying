@@ -1,4 +1,4 @@
-.body {
+body {
     background-color: #00ff7f;
     font-size: 32rem;
 }
@@ -10,14 +10,14 @@
     font-family: 'Unica One', cursive;
 }
 
-.p {
+p {
     text-align: center;
     color: #ff0000;
     font-size: 32px;
     size: 5rem;
 }
 
-.a {
+a {
     color:black;
 }
 
@@ -83,9 +83,9 @@ div.listItem {
 button:hover span {display:none}
 
 .button:hover {
-    color: rgb(243, 42, 20);    
+    color: rgb(7, 5, 5);    
 }
 
 .button:hover::before {
-    content:"i am an ulgy person ";
+    content:"YES  ";
 }

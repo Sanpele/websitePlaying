@@ -28,7 +28,7 @@ button:hover span {display:none}
 }
 
 .button:hover::before {
-    content:"i am an ulgy person ";
+    content:"CLICK ME";
 }
 
 .p {

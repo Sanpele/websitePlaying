@@ -33,6 +33,7 @@ if (!check_scrape()) {
         echo "<br>" . "<p class='p'> NEW DATA PRINTED BELOW";
         echo "<br>" . $covid_today;
     }
+    // UPDATE last_update.txt to reflect todays check
     else {
         echo "<br>" . "<p class='p'> UP TO DATE";
         $curr_day = intval(date('d', time()));
