@@ -6,16 +6,17 @@ require_once("scrape_data.php");
 
 $db_info = "mysql_info.txt";
 
-echo "<p class = 'p'> Hello There";
-
 # READ AND ECHO HEADER
 $header = fopen("header.html", "r") or die("unable to open file D");
 echo fread($header, filesize("header.html"));
 fclose($header);
 
+$README = fopen("README.html", "r") or die("unable to open file D");
+echo fread($README, filesize("README.html"));
+fclose($README);
+
 # CREATE DB
 $DB = new mysql_table($db_info);
-
 
 # Only scrape if we haven't already checked today
 if (!check_scrape()) {
@@ -30,12 +31,12 @@ if (!check_scrape()) {
     if ($update_date !== -1) {
         $covid_today = get_data($doc, $update_date, FALSE);
         $DB->insert($covid_today);
-        echo "<br>" . "<p class='p'> NEW DATA PRINTED BELOW";
+        echo "<br>" . "<p> NEW DATA PRINTED BELOW";
         echo "<br>" . $covid_today;
     }
     // UPDATE last_update.txt to reflect todays check
     else {
-        echo "<br>" . "<p class='p'> UP TO DATE";
+        echo "<br>" . "<p> UP TO DATE";
         $curr_day = intval(date('d', time()));
 
         $update_file = fopen("last_update.txt", "r") or die("Unable to open last_update");
@@ -52,7 +53,7 @@ if (!check_scrape()) {
 }
 else {
 
-    echo "<br>" . "<p class='p'> ALREADY CHECKED TODAY, JUST LIST DB";
+    echo "<p class='p'> ALREADY CHECKED TODAY, JUST LIST DB";
 
 }
 

@@ -12,6 +12,15 @@ h1 {
     size: 5rem;
 }
 
+h2 {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+    color: #0e0707;
+    font-size: 40px;
+    size: 5rem;
+}
+
 h3 {
     margin-left: 10%;
     margin-right: 10%;

@@ -54,10 +54,10 @@ class mysql_table implements db_template {
                 VALUES ('$CovidDataObj->id', '$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->date')";
 
             if ($this->conn->query($sql) === TRUE) {
-                echo "<p class = 'p'> New Record Created Succesfully<br>";
+                echo "<p> New Record Created Succesfully<br>";
             }
             else {
-                echo "<p class = 'p'> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
+                echo "<p> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
             }
         }
     }

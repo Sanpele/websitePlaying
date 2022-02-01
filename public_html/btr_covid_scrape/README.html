@@ -1,0 +1,14 @@
+
+<h1 id="covid-number-scraper.">Covid Number Scraper.</h1>
+<h2 id="purpose">Purpose</h2>
+<p>To practice and learn more about php, mysql and consuming API’s.</p>
+<h2 id="what">What</h2>
+<p>Scrapes todays (or latest) Manitoba covid19 stats for daily cases and transmission rates and adds them to a mysql database. Then gets all values from the database and prints them.</p>
+<h2 id="how">How :</h2>
+<p>I used a webscraping service, <a href="https://www.scraperapi.com/">scraperapi</a> to scrape the manitoba provincial goverment daily covid stats, found at <a href="https://www.gov.mb.ca/covid19/updates/index.html">https://www.gov.mb.ca/covid19/updates/index.html</a>.</p>
+<p>This returned the full html webpage. Everything could be discarded except the current situation content. Then the current situation text was parsed for the date, the daily # of covid cases, winnnipeg transmission rate and provincial transmission rate.</p>
+<p>These values were then inserted into a mysql database, and the entire record of the database is then printed out to the screen.</p>
+<h2 id="pivot">Pivot</h2>
+<p>Three days after I finished the code for the above situation, the daily briefing changed format to reflect a covid19 approach less reliant on daily case numbers in response to OH-MAH-CRON. Thus the future of this lil project is in analyzing the past briefings which are conviently still posted on the manitoba goverment website.</p>
+<p>On loading this webpage a randomly selected covid bullitin will be chosen chosen, scraped and added the database.</p>
+<hr>
