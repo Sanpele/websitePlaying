@@ -4,11 +4,9 @@ $header = fopen("header.html", "r") or die("unable to open file D;");
 
 echo fread($header, filesize("header.html"));
 
-//echo '<p>hello world, im gonna getcha</p>';
+$README = fopen("README.html", "r") or die("unable to open file D;");
 
-echo '<p> Colin Waugh Website </p>';
-
-echo '<p class="p" id="decider"></p>';
+echo fread($README, filesize("README.html"));
 
 // topics
 $topics = array(
@@ -25,7 +23,7 @@ function makeButtons($buttons) {
 
 	$html = '';
 	foreach ($buttons as $k => $v) {		 
-		$html .= '<a class="button" href="' . $v. '">' . $k . ' </a></div>';
+		$html .= '<a class="button1" href="' . $v. '">' . $k . ' </a></div>';
 	}	
 	$html .= "</div>";
 	echo $html;
