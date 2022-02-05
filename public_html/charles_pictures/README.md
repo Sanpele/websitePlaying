@@ -1,7 +1,3 @@
-# Shopify_Developer_Intern_2022
-
-My (Colin Waughs) submission to the shopify data engineer intern challange
-
 ## Simple Image Repo Implemented With PHP
 
 ---
@@ -51,7 +47,7 @@ The Image repository will display in all its glory.
 
 To view testing, Change the $testing boolean in the index.php file to TRUE and reload the webpage. The results of the testing.php file will be loaded instead of the repo code.
 
-:D
+Alternatively, if you have a happen to own or have access to a webserver you could give the current directory an endpoint.
 
 ---
 

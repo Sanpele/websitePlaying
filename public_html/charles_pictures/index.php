@@ -51,7 +51,7 @@ function load_sign_up() {
     printSignUp();
 
     printFooter();
-
+    
 }
 
 // if $testing boolean is true, run test file instead of image repo code.
@@ -80,5 +80,7 @@ else {
     // display pictures
     else 
         load_picture_page();
+
+    printDescription();
 }
 ?>

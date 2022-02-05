@@ -1,0 +1,58 @@
+<h2 id="simple-image-repo-implemented-with-php">Simple Image Repo Implemented With PHP</h2>
+<hr />
+<h3 id="features">Features</h3>
+<ul>
+<li>User sign in.s</li>
+<li>Cookies to remember users.</li>
+<li>Guest option for viewing all images in repository</li>
+<li>Users can upload images &lt; 2 mb in size.</li>
+<li>Users also allowed overall quota of 10 mb.</li>
+<li>Users can toggle between viewsing all repo Images and only their pictures.</li>
+</ul>
+<hr />
+<h3 id="selling-points">Selling Points</h3>
+<p>Realitively clean coding that allows for extension.</p>
+<p>Mostly php allowing for lots of control for the developer.</p>
+<p>…</p>
+<p>Lots of excercise for your fingers.</p>
+<p>Looks like it was built in 2005.</p>
+<hr />
+<h3 id="running">Running:</h3>
+<p>A simple way to run the code is with php7 installed on your machine to run the project.</p>
+<p>Next you will have to clone the github repo.</p>
+<p>Navigate into the project directory, then navigate into the src/ directory.</p>
+<p>Once in the src directory, type the following command into the terminal to start a simple development server.</p>
+<p>php -S localhost:8000</p>
+<p>And now if you open your web browser and type in the address</p>
+<p>localhost:8000</p>
+<p>The Image repository will display in all its glory.</p>
+<p>To view testing, Change the $testing boolean in the index.php file to TRUE and reload the webpage. The results of the testing.php file will be loaded instead of the repo code.</p>
+<p>Alternatively, if you have a happen to own or have access to a webserver you could give the current directory an endpoint.</p>
+<hr />
+<h3 id="how-to-use">How to Use</h3>
+<p>You can use the website as a user or guest.</p>
+<p>Initially you will be prompted login. There are a couple of preloaded accounts you can use to sign in.</p>
+<p>Username : abc</p>
+<p>Password : 123</p>
+<p>or</p>
+<p>Username : hello</p>
+<p>Password : its_me</p>
+<p>Likewise each account already has a few images stored, and a folder has been provided in the project directory containing some sample images.</p>
+<p>However, feel free to create your own account and add images you want to your repository. If you do want to create your own account, type in a username/password not chosen and you will be redirected to a very similar looking screen providing you the opportunity to type in the same values you just typed in, or you can continue as a guest.</p>
+<p>Finally once you have signed in/up you will redirected to the image viewing page. This will allow you to view all the images in the repository. And if you are signed-in your name, remaining quota and privacy are displayed. All the pictures in the repository are displayed at the bottom of the screen in rows of 4 pictures each.</p>
+<p>Finally you can upload images by selecting the Brouse… button, navigating to your image on your computer and by clicking the Upload Image button. You will be navigated to a screen that will print out the result of the upload providing the user with some feedback if unsuccessful.</p>
+<p>Thats about it, :D.</p>
+<hr />
+<h3 id="legitimate-avenues-for-improvement.">Legitimate avenues for improvement.</h3>
+<p>Where to start.</p>
+<h2 id="bigger-uploads">Bigger uploads:</h2>
+<p>Php file uploading was rather nice to implement, and allows for up to 20 files at once to be uploaded. I only implemnted the simpler single file upload however it would be intersting to try out the 20 concurrent uploads and see if this could be chained together to upload huge data ammounts.</p>
+<h2 id="labeling-images">Labeling Images:</h2>
+<p>Another avenue I could see would be either labeling all images with their uploader or potentially watermarking the images with the uploader. With images linked to users this would give more context to the collection of images for users to browse.</p>
+<h2 id="private-images">Private Images:</h2>
+<p>Additionally I wanted to allow users to set the privacy requriements on their images, whether it be for all images or specific ones.</p>
+<h2 id="better-testing">Better testing:</h2>
+<p>I only gave myself time for cursory unit testing that definetely wasn’t a strength of this handin. So definetely more comprehensive unit testing would improve my submission but considering the simple menu i implemented some acceptance tests woulden’t hurt.</p>
+<h2 id="adaptive-picture-display">Adaptive Picture Display:</h2>
+<p>Given the likelyhood of a variety of different picture sizes and dimensions i chose a simpler hard coded image size. However displaying the images with their oritinal aspect ratio would be more true to the images and improve the repository quality.</p>
+<p>The list could go on but i will stop myself here.</p>

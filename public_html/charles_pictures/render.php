@@ -3,6 +3,11 @@
 ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) . '/session'));
 session_start();
 
+function printDescription() {
+    $desc = fopen("hypertext/README.html", "r") or die("unable to open file");
+    echo fread($desc, filesize("hypertext/README.html"));
+    fclose($desc);}
+
 function printHeader() {
     # READ AND ECHO HEADER
     $header = fopen("hypertext/header.html", "r") or die("unable to open file");

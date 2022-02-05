@@ -13,7 +13,7 @@ session_start();
 */
 function checkCookie() {
 
-    print_r($_COOKIE);
+    // print_r($_COOKIE);
 
     $uname = $_COOKIE['uname']; 
     if (!empty($uname)) {   

@@ -12,7 +12,7 @@ echo fread($README, filesize("README.html"));
 $topics = array(
 
 	"Covid Scrape with MYSQL" => "btr_covid_scrape/index.php",
-	"St Charles Picture Display" => "charles_pictures/index.php",
+	"Basic Image Repository" => "charles_pictures/index.php",
 	"Christmas Presents" => "christmas/index.php?person=all",
     "Summer 2020" => "summer_2020/index.html",
 
