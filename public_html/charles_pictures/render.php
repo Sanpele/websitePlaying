@@ -4,8 +4,8 @@ ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) . '/sess
 session_start();
 
 function printDescription() {
-    $desc = fopen("hypertext/README.html", "r") or die("unable to open file");
-    echo fread($desc, filesize("hypertext/README.html"));
+    $desc = fopen("hypertext/description.html", "r") or die("unable to open file");
+    echo fread($desc, filesize("hypertext/description.html"));
     fclose($desc);}
 
 function printHeader() {
@@ -17,6 +17,9 @@ function printHeader() {
 
 function printFooter() {
     # READ AND ECHO FOOTER
+
+    printDescription();
+
     $footer = fopen("hypertext/footer.html", "r") or die("unable to open file");
     echo fread($footer, filesize("hypertext/footer.html"));
     fclose($footer);

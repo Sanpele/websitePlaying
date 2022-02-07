@@ -42,15 +42,16 @@ echo '<p class="p">Personal, unique and touching msg</p>';
 echo '<p class="actual_text">
 	The images I used were some of my photos I took over the summer at St. Charles. </br> </br>
 
-	The images in the first column are the 3000 x 4000 pixel images i took with my sweet phone camera. </br> </br>
+	The images in the first column are 3000 x 4000 pixel images I took with my sweet phone camera. </br> </br>
 
-	The second column are the images produced from a nifty Processing program that can be found near the bottom of https://processing.org/tutorials/pixels </br> </br>
+	The second column are the images produced from a nifty Processing program that I modified a bit. It chooses a random pixel in the image and draws an elipse
+	on that spot in another image. After repeating enough times you recreate the original image. The original program and a better descrption can be found that 
+	can be found near the bottom of https://processing.org/tutorials/pixels </br> </br>
 
-	Finally, to get column 3 I ordered ordered a 8 x 8 inch canvas print from staples then took pictures of them with a camera. </br> </br>
+	Finally, to get column 3 I ordered ordered a 8 x 8 inch canvas print from staples. </br> </br>
 
 	So really, this gift is a canvas print of a divined image of a picture, and you are viewing a Image of an Image of the canvas... </br> </br>
 
-	p.s. If you want to see all the images, use this URL instead : www.colinwaugh.com/fall_2021/christmas/index.php?person=all
 </p>'; 
 
 if ($person != "all") { // just display one set of images

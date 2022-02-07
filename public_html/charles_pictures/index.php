@@ -81,6 +81,5 @@ else {
     else 
         load_picture_page();
 
-    printDescription();
 }
 ?>

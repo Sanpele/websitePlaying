@@ -31,7 +31,7 @@ if (!check_scrape()) {
     if ($update_date !== -1) {
         $covid_today = get_data($doc, $update_date, FALSE);
         $DB->insert($covid_today);
-        echo "<br>" . "<p> NEW DATA PRINTED BELOW";
+        echo "<p> NEW DATA PRINTED BELOW";
         echo "<br>" . $covid_today;
     }
     // UPDATE last_update.txt to reflect todays check
