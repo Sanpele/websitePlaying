@@ -56,6 +56,7 @@ else {
     echo "<p class='p'> ALREADY CHECKED TODAY, JUST LIST DB";
 
 }
+
 echo '<table border="0" cellspacing="2" cellpadding="2"> 
       <tr> 
           <td> <font face="Arial">ID</font> </td> 

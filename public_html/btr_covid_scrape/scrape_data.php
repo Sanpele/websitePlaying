@@ -4,36 +4,6 @@ require_once("covidDataObj.php");
 
 $debug = FALSE;
 
-$days_in_month = array ( 
-	1 => 31,
-	2 => 28, 
-	3 => 31,
-	4 => 30,
-	5 => 31, 
-	6 => 30, 
-	7 => 31,
-	8 => 31,
-	9 => 30,
-	10 => 31,
-	11 => 30,
-	12 => 31
-);
-
-$month_to_num = array(
-	"January" => 1,
-	"February" => 2, 
-	"March" => 3,
-	"April" => 4, 
-	"May" => 5,
-	"June" => 6, 
-	"July" => 7,
-	"August" => 8,
-	"September" => 9,
-	"October" => 10, 
-	"November" => 11,
-	"December" => 12, 
-);
-
 function get_document() {
     $file = fopen("info.txt","r");
     $my_key = trim(fgets($file));
@@ -54,6 +24,59 @@ function get_document() {
     return $response;
 }
 
+function get_date($str) {
+
+	$month_to_num = array(
+		"January" => 1,
+		"February" => 2, 
+		"March" => 3,
+		"April" => 4, 
+		"May" => 5,
+		"June" => 6, 
+		"July" => 7,
+		"August" => 8,
+		"September" => 9,
+		"October" => 10, 
+		"November" => 11,
+		"December" => 12, 
+	);
+
+	$sample = "Last updated: ";
+
+	$proper_start = strlen($sample);
+	$start_cutoff = strpos($str, $sample) + $proper_start;
+	$max_length = strlen("February 16, 2022");
+	$cutoff = 0;
+
+	$char = $str[$start_cutoff + $cutoff];
+	while((ord($char) >= '0' or ord($char) === 44 or ord($char) === 32) and $cutoff < $max_length) {
+		// echo "<p> $char";
+		$cutoff++;
+		$char = $str[$start_cutoff + $cutoff];
+	}
+
+	$date_str = substr($str,$start_cutoff, $cutoff);
+
+	$plode = explode(" ", $date_str);
+	$month = $month_to_num[$plode[0]];
+	$month_num = $month < 10 ? "0".$month : $month;
+	
+	echo "<p> plode[0] : " . $plode[0] . "<-";
+	echo "<p> fromArr  : " . $month_to_num["February"] . "<-";
+	echo "<p> eq       : " . "February" === $plode[0];
+	echo "<p> len       : " . strlen("February");
+	echo "<p> len       : "  .strlen($plode[0]);
+	echo "<p> month_key : " . $month_key;
+	echo "<p> month_num : " . $month_num;
+
+	$final_date = $plode[2] . "-" . $month_num . "-" . substr($plode[1], 0, 2);
+
+	echo "<p> $final_date";
+
+	return $final_date;
+
+}
+
 function get_val_after($entire, $prev, $sample, $bug) {
 
     $proper_len = strlen($sample);
@@ -65,7 +88,7 @@ function get_val_after($entire, $prev, $sample, $bug) {
         echo "date_pos ".$date_pos."<br>";
     }
  
-    while(!is_numeric($entire[$date_pos+strlen($prev)+$cutoff]) and $cutoff >= 0) {
+    while($entire[$date_pos+strlen($prev)+$cutoff] > '0' and $cutoff >= 0) {
         --$cutoff;
         if ($bug == TRUE) {
             echo "cutoff ".$cutoff."<br>";
@@ -120,6 +143,22 @@ function get_val_before($entire, $after, $sample, $bug) {
 }
 
 function gen_date_id() {
+
+	$days_in_month = array ( 
+		1 => 31,
+		2 => 28, 
+		3 => 31,
+		4 => 30,
+		5 => 31, 
+		6 => 30, 
+		7 => 31,
+		8 => 31,
+		9 => 30,
+		10 => 31,
+		11 => 30,
+		12 => 31
+	);
+
 	$date_id = 31536000 * date('y', time());
 
 	$days_since = 0;
@@ -161,7 +200,7 @@ function parse_document() {
 function check_new_update($whole, $bug) {
 
 	// Grab the day number in current month 
-	$doc_date = get_val_after($whole, "Last updated: January ", "52", $bug);
+	$doc_date = get_val_after($whole, "Last updated: February ", "52", $bug);
 	$doc_date = intval($doc_date);
 
 	// Read the latest update from file
@@ -188,6 +227,7 @@ function get_data($whole, $update_date, $bug) {
 
 	$current_prov_pos = get_val_after($whole, "rate is ", "10.5", $bug);
 	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
+	$bull_date = get_date($whole);
 	// $current_cases = get_val_after($whole, "cases today", "485");
 	
 	$cases_second = get_val_before($whole, "cases today", "123", $bug);
@@ -211,7 +251,7 @@ function get_data($whole, $update_date, $bug) {
 	fwrite($update_file, $curr_day);
 	fclose($update_file);
 
-	return $covid_today = new CovidData($date_id, $current_date, $current_prov_pos, $current_wpg_pos, $cases_second);
+	return $covid_today = new CovidData($date_id, $bull_date, $current_date, $current_prov_pos, $current_wpg_pos, $cases_second);
 
 }
 

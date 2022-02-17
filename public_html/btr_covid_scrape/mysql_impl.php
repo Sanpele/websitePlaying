@@ -58,18 +58,19 @@ class mysql_table implements db_template {
 
         if (mysqli_num_rows($check_already) > 0) {
             // echo "<p class = 'p'> Data already recorded today <br>";
+            $this->delete($CovidDataObj->id);
+        }
+        
+        $sql = "INSERT INTO $this->tableName (id, prov_rate, wpg_rate, daily_num, bulletin_date, scraped_date)
+            VALUES ('$CovidDataObj->id', '$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->bulletin_date', '$CovidDataObj->scraped_date')";
+
+        if ($this->conn->query($sql) === TRUE) {
+            echo "<p> New Record Created Succesfully<br>";
         }
         else {
-            $sql = "INSERT INTO $this->tableName (id, prov_rate, wpg_rate, daily_num, bulletin_date, scraped_date)
-                VALUES ('$CovidDataObj->id', '$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->bulletin_date', '$CovidDataObj->scraped_date')";
-
-            if ($this->conn->query($sql) === TRUE) {
-                echo "<p> New Record Created Succesfully<br>";
-            }
-            else {
-                echo "<p> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
-            }
+            echo "<p> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
         }
+        
     }
 
     public function get ($id) {
@@ -80,7 +81,7 @@ class mysql_table implements db_template {
         $out;
         if ($row === TRUE) {
             echo "Record RETRIEVED Succssfully";
-            $out = new covidDataObj($row['id'], $row['bulletin_date'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num']);
+            $out = new CovidData($row['id'], $row['bulletin_date'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num']);
         }
         else {
             echo "Error retriving record: " . $row->error;
@@ -114,7 +115,8 @@ class mysql_table implements db_template {
 
         $out = [];
         if ($result->num_rows > 0) {
-            $out[] = new covidDataObj($row['id'], $row['bulletin_date'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num']);           
+            while ($row = $result->fetch_assoc())
+                $out[] = new CovidData($row['id'], $row['bulletin_date'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num']);           
         }
         return $out;
     }
