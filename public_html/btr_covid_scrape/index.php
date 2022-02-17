@@ -56,9 +56,20 @@ else {
     echo "<p class='p'> ALREADY CHECKED TODAY, JUST LIST DB";
 
 }
-
+echo '<table border="0" cellspacing="2" cellpadding="2"> 
+      <tr> 
+          <td> <font face="Arial">ID</font> </td> 
+          <td> <font face="Arial">bulletin_date</font> </td> 
+          <td> <font face="Arial">scraped_date</font> </td> 
+          <td> <font face="Arial">prov_test_rate</font> </td> 
+          <td> <font face="Arial">wpg_test_rate</font> </td> 
+          <td> <font face="Arial">todays_cases</font> </td> 
+      </tr>';
 # GET ALL RECORDED VALUES
-$DB->getAll();
+$out = $DB->getAll();
+foreach ($out as &$value) {
+    echo $value;
+}
 
 // $DB->delete(694396800);
 

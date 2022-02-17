@@ -1,6 +1,7 @@
 <?php
 
 require_once("db_template.php");
+require_once("covidDataObj.php");
 
 class mysql_table implements db_template {
 
@@ -25,13 +26,8 @@ class mysql_table implements db_template {
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
         $val = $this->conn->query('select 1 from $this->tableName LIMIT 1');
-        if($val !== FALSE)
+        if($val === FALSE)
         {
-            echo "<br>" . "Table exists, do nothing";
-        }
-        else
-        {
-            echo "<br>" . "Table dosen't exist or empty, create Table";
             $this->createDB();
         }
     }
@@ -48,10 +44,10 @@ class mysql_table implements db_template {
         )";
         
         if ($this->conn->query($sql) === TRUE) {
-            echo "Table Created or maybe already there<br>";
+            echo "<p>Table Created or maybe already there<br>";
         }
         else {
-            echo "TABLE CREATION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
+            echo "<p>TABLE CREATION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
         }
     }
 
@@ -78,17 +74,19 @@ class mysql_table implements db_template {
 
     public function get ($id) {
         $sql = "SELECT FROM $this->tableName where id=$id";
-        $result = $this->conn->query($sql);
+        $row = $this->conn->query($sql);
         # CHECK RESULT SOMEHOW
 
-        if ($result === TRUE) {
+        $out;
+        if ($row === TRUE) {
             echo "Record RETRIEVED Succssfully";
+            $out = new covidDataObj($row['id'], $row['bulletin_date'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num']);
         }
         else {
-            echo "Error retriving record: " . $result->error;
+            echo "Error retriving record: " . $row->error;
         }
 
-        return $result;
+        return $out;
     }
 
     public function delete ($id) {
@@ -110,22 +108,15 @@ class mysql_table implements db_template {
         should prob return a list of covidDataObj, will need to unpack rows
     */
     public function getAll () {
+
         $sql = "SELECT * FROM $this->tableName";
         $result = $this->conn->query($sql);
 
+        $out = [];
         if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()){ 	
-                echo "<br><br>";
-                echo "id				: " . $row["id"] . "<br>";
-                echo "provincial rate	: " . $row["prov_rate"] . "<br>";
-                echo "wpg rate			: " . $row["wpg_rate"] . "<br>";
-                echo "todays cases		: " . $row["daily_num"] . "<br>";
-                echo "date				: " . $row["bulletin_date"] . "<br>";
-                echo "date				: " . $row["scraped_date"] . "<br>";
-
-                echo "<br>";
-            }
+            $out[] = new covidDataObj($row['id'], $row['bulletin_date'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num']);           
         }
+        return $out;
     }
 
 }
