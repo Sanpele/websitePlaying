@@ -1,10 +1,8 @@
-#collapse26
 https://news.gov.mb.ca/news/index.html?item=53309,COVID-19 BULLETIN #566
 https://news.gov.mb.ca/news/index.html?item=53299,COVID-19 BULLETIN #565
 https://news.gov.mb.ca/news/index.html?item=53281,COVID-19 BULLETIN #564
 https://news.gov.mb.ca/news/index.html?item=53278,COVID-19 BULLETIN #563
 https://news.gov.mb.ca/news/index.html?item=53256,COVID-19 BULLETIN #562
-#collapse25
 https://news.gov.mb.ca/news/index.html?item=53251,COVID-19 BULLETIN #561
 https://news.gov.mb.ca/news/index.html?item=53247,COVID-19 BULLETIN #560
 https://news.gov.mb.ca/news/index.html?item=53243,COVID-19 BULLETIN #559
@@ -16,7 +14,6 @@ https://news.gov.mb.ca/news/index.html?item=53181,COVID-19 BULLETIN #553
 https://news.gov.mb.ca/news/index.html?item=53178,COVID-19 BULLETIN #552
 https://news.gov.mb.ca/news/index.html?item=53158,COVID-19 BULLETIN #551
 https://news.gov.mb.ca/news/index.html?item=53137,COVID-19 BULLETIN #550
-#collapse24
 https://news.gov.mb.ca/news/index.html?item=53080,COVID-19 BULLETIN #548
 https://news.gov.mb.ca/news/index.html?item=53077,COVID-19 BULLETIN #547
 https://news.gov.mb.ca/news/index.html?item=53038,COVID-19 BULLETIN #546
@@ -31,7 +28,6 @@ https://news.gov.mb.ca/news/index.html?item=52821,COVID-19 BULLETIN #537
 https://news.gov.mb.ca/news/index.html?item=52818,COVID-19 BULLETIN #536
 https://news.gov.mb.ca/news/index.html?item=52801,COVID-19 BULLETIN #535
 https://news.gov.mb.ca/news/index.html?item=52790,COVID-19 BULLETIN #534
-#collapse23
 https://news.gov.mb.ca/news/index.html?item=52783,COVID-19 BULLETIN #533
 https://news.gov.mb.ca/news/index.html?item=52771,COVID-19 BULLETIN #532
 https://news.gov.mb.ca/news/index.html?item=52771,COVID-19 BULLETIN #532
@@ -40,14 +36,12 @@ https://news.gov.mb.ca/news/index.html?item=52726,COVID-19 BULLETIN #528
 https://news.gov.mb.ca/news/index.html?item=52717,COVID-19 BULLETIN #527
 https://news.gov.mb.ca/news/index.html?item=52709,COVID-19 BULLETIN #526
 https://news.gov.mb.ca/news/index.html?item=52698,COVID-19 BULLETIN #525
-#collapse22
 https://news.gov.mb.ca/news/index.html?item=52679,COVID-19 BULLETIN #523
 https://news.gov.mb.ca/news/index.html?item=52619,COVID-19 BULLETIN #520
 https://news.gov.mb.ca/news/index.html?item=52597,COVID-19 BULLETIN #519
 https://news.gov.mb.ca/news/index.html?item=52586,COVID-19 BULLETIN #518
 https://news.gov.mb.ca/news/index.html?item=52573,COVID-19 BULLETIN #517
 https://news.gov.mb.ca/news/index.html?item=52563,COVID-19 BULLETIN #516
-#collapse21
 https://news.gov.mb.ca/news/index.html?item=52540,COVID-19 BULLETIN #515
 https://news.gov.mb.ca/news/index.html?item=52530,COVID-19 BULLETIN #514
 https://news.gov.mb.ca/news/index.html?item=52518,COVID-19 BULLETIN #513
@@ -56,7 +50,6 @@ https://news.gov.mb.ca/news/index.html?item=52438,COVID-19 BULLETIN #511
 https://news.gov.mb.ca/news/index.html?item=52423,COVID-19 BULLETIN #510
 https://news.gov.mb.ca/news/index.html?item=52417,COVID-19 BULLETIN #509
 https://news.gov.mb.ca/news/index.html?item=52401,COVID-19 BULLETIN #508
-#collapse20
 https://news.gov.mb.ca/news/index.html?item=52318,COVID-19 BULLETIN #507
 https://news.gov.mb.ca/news/index.html?item=52237,COVID-19 BULLETIN #506
 https://news.gov.mb.ca/news/index.html?item=52160,COVID-19 BULLETIN #505
@@ -66,7 +59,6 @@ https://news.gov.mb.ca/news/index.html?item=52124,COVID-19 BULLETIN #502
 https://news.gov.mb.ca/news/index.html?item=52040,COVID-19 BULLETIN #501
 https://news.gov.mb.ca/news/index.html?item=52019,COVID-19 BULLETIN #500
 https://news.gov.mb.ca/news/index.html?item=52000,COVID-19 BULLETIN #499
-#collapse19
 https://news.gov.mb.ca/news/index.html?item=51986,COVID-19 BULLETIN #498
 https://news.gov.mb.ca/news/index.html?item=51980,COVID-19 BULLETIN #497
 https://news.gov.mb.ca/news/index.html?item=51963,COVID-19 BULLETIN #496
@@ -87,7 +79,6 @@ https://news.gov.mb.ca/news/index.html?item=51660,COVID-19 BULLETIN #481
 https://news.gov.mb.ca/news/index.html?item=51617,COVID-19 BULLETIN #480
 https://news.gov.mb.ca/news/index.html?item=51578,COVID-19 BULLETIN #479
 https://news.gov.mb.ca/news/index.html?item=51555,COVID-19 BULLETIN #478
-#collapse18
 https://news.gov.mb.ca/news/index.html?item=51549,COVID-19 BULLETIN #477
 https://news.gov.mb.ca/news/index.html?item=51545,COVID-19 BULLETIN #476
 https://news.gov.mb.ca/news/index.html?item=51540,COVID-19 BULLETIN #475
@@ -118,7 +109,6 @@ https://news.gov.mb.ca/news/index.html?item=51383,COVID-19 BULLETIN #451
 https://news.gov.mb.ca/news/index.html?item=51377,COVID-19 BULLETIN #450
 https://news.gov.mb.ca/news/index.html?item=51372,COVID-19 BULLETIN #449
 https://news.gov.mb.ca/news/index.html?item=51367,COVID-19 BULLETIN #448
-#collapse17
 https://news.gov.mb.ca/news/?archive=&item=51362,COVID-19 BULLETIN #447
 https://news.gov.mb.ca/news/index.html?item=51357&posted=2021-05-30,COVID-19 BULLETIN #446
 https://news.gov.mb.ca/news/?archive=&item=51355,COVID-19 BULLETIN #445
@@ -149,7 +139,6 @@ https://news.gov.mb.ca/news/?archive=&item=51211,COVID-19 BULLETIN #421
 https://news.gov.mb.ca/news/index.html?item=51204&posted=2021-05-03,COVID-19 BULLETIN #420
 https://news.gov.mb.ca/news/index.html?item=51197&posted=2021-05-02,COVID-19 BULLETIN #419
 https://news.gov.mb.ca/news/index.html?item=51195&posted=2021-05-01,COVID-19 BULLETIN #418
-#collapse16
 https://news.gov.mb.ca/news/index.html?item=51188,COVID-19 BULLETIN #417
 https://news.gov.mb.ca/news/index.html?item=51185,COVID-19 BULLETIN #416
 https://news.gov.mb.ca/news/index.html?item=51181,COVID-19 BULLETIN #415
@@ -178,7 +167,6 @@ https://news.gov.mb.ca/news/index.html?item=51080&posted=2021-04-06,COVID-19 BUL
 https://news.gov.mb.ca/news/index.html?item=51078&posted=2021-04-05,COVID-19 BULLETIN #392
 https://news.gov.mb.ca/news/index.html?item=51069,COVID-19 BULLETIN #391
 https://news.gov.mb.ca/news/index.html?item=51066&posted=2021-04-01,COVID-19 BULLETIN #390
-#collapse15
 https://news.gov.mb.ca/news/index.html?item=51062&posted=2021-03-31,COVID-19 BULLETIN #389
 https://news.gov.mb.ca/news/index.html?item=51057&posted=2021-03-30,COVID-19 BULLETIN #388
 https://news.gov.mb.ca/news/index.html?item=51051&posted=2021-03-29,COVID-19 BULLETIN #387
@@ -210,7 +198,6 @@ https://news.gov.mb.ca/news/index.html?item=50914&posted=2021-03-04,COVID-19 BUL
 https://news.gov.mb.ca/news/index.html?item=50907&posted=2021-03-03,COVID-19 BULLETIN #361
 https://news.gov.mb.ca/news/index.html?item=50900&posted=2021-03-02,COVID-19 BULLETIN #360
 https://news.gov.mb.ca/news/index.html?item=50892&posted=2021-03-01,COVID-19 BULLETIN #359
-#collapse14
 https://news.gov.mb.ca/news/index.html?item=50888,COVID-19 BULLETIN #358
 https://news.gov.mb.ca/news/index.html?item=50887,COVID-19 BULLETIN #357
 https://news.gov.mb.ca/news/index.html?item=50885&posted=2021-02-26,COVID-19 BULLETIN #356
@@ -238,7 +225,6 @@ https://news.gov.mb.ca/news/index.html?item=50578&posted=2021-02-04,COVID-19 BUL
 https://news.gov.mb.ca/news/index.html?item=50563&posted=2021-02-03,COVID-19 BULLETIN #334
 https://news.gov.mb.ca/news/index.html?item=50559&posted=2021-02-02,COVID-19 BULLETIN #333
 https://news.gov.mb.ca/news/index.html?item=50541&posted=2021-02-01,COVID-19 BULLETIN #332
-#collapse13
 https://news.gov.mb.ca/news/index.html?item=50517&posted=2021-01-31,COVID-19 BULLETIN #331
 https://news.gov.mb.ca/news/index.html?item=50459&posted=2021-01-29,COVID-19 BULLETIN #329
 https://news.gov.mb.ca/news/index.html?item=50419&posted=2021-01-28,COVID-19 BULLETIN #328
@@ -269,7 +255,6 @@ https://news.gov.mb.ca/news/index.html?item=50135&posted=2021-01-04,COVID-19 BUL
 https://news.gov.mb.ca/news/index.html?item=50134&posted=2021-01-04,COVID-19 BULLETIN #303
 https://news.gov.mb.ca/news/?archive=&item=50131,COVID-19 BULLETIN #302
 https://news.gov.mb.ca/news/?archive=&item=50129,COVID-19 BULLETIN #301
-#collapse12
 https://news.gov.mb.ca/news/?archive=&item=50126,COVID-19 BULLETIN #300
 https://news.gov.mb.ca/news/index.html?item=50121&posted=2020-12-30,COVID-19 BULLETIN #299
 https://news.gov.mb.ca/news/index.html?item=50117&posted=2020-12-29,COVID-19 BULLETIN #298
@@ -299,7 +284,6 @@ https://news.gov.mb.ca/news/index.html?item=49932&posted=2020-12-04,COVID-19 BUL
 https://news.gov.mb.ca/news/index.html?item=49928&posted=2020-12-03,COVID-19 BULLETIN #274
 https://news.gov.mb.ca/news/index.html?item=49923&posted=2020-12-02,COVID-19 BULLETIN #273
 https://news.gov.mb.ca/news/index.html?item=49920&posted=2020-12-01,COVID-19 BULLETIN #272
-#collapse11
 https://news.gov.mb.ca/news/index.html?item=49916&posted=2020-11-30,COVID-19 BULLETIN #271
 https://news.gov.mb.ca/news/index.html?item=49914&posted=2020-11-29,COVID-19 BULLETIN #270
 https://news.gov.mb.ca/news/index.html?item=49911&posted=2020-11-28,COVID-19 BULLETIN #269
@@ -331,7 +315,6 @@ https://news.gov.mb.ca/news/?archive=&item=49573,COVID-19 BULLETIN #243
 https://news.gov.mb.ca/news/index.html?item=49566,COVID-19 BULLETIN #242
 https://news.gov.mb.ca/news/index.html?item=49559&posted=2020-11-02,COVID-19 BULLETIN #241
 https://news.gov.mb.ca/news/index.html?item=49537&posted=2020-11-01,COVID-19 BULLETIN #240
-#collapse10
 https://news.gov.mb.ca/news/index.html?item=49517&posted=2020-10-31,COVID-19 BULLETIN #239
 https://news.gov.mb.ca/news/index.html?item=49501&posted=2020-10-31,COVID-19 BULLETIN #238
 https://news.gov.mb.ca/news/index.html?item=49497&posted=2020-10-30,COVID-19 BULLETIN #237
@@ -366,7 +349,6 @@ https://news.gov.mb.ca/news/index.html?item=49341,COVID-19 BULLETIN #209
 https://news.gov.mb.ca/news/index.html?item=49339,COVID-19 BULLETIN #208
 https://news.gov.mb.ca/news/index.html?item=49335,COVID-19 BULLETIN #207
 https://news.gov.mb.ca/news/index.html?item=49331,COVID-19 BULLETIN #206
-#collapse9
 https://news.gov.mb.ca/news/index.html?item=49324,COVID-19 BULLETIN #205
 https://news.gov.mb.ca/news/index.html?item=49318&posted=2020-09-29,COVID-19 BULLETIN #204
 https://news.gov.mb.ca/news/index.html?item=49304&posted=2020-09-28,COVID-19 BULLETIN #203
@@ -398,7 +380,6 @@ https://news.gov.mb.ca/news/index.html?item=49182&posted=2020-09-04,COVID-19 BUL
 https://news.gov.mb.ca/news/index.html?item=49178&posted=2020-09-03,COVID-19 BULLETIN #176
 https://news.gov.mb.ca/news/index.html?item=49164&posted=2020-09-02,COVID-19 BULLETIN #175
 https://news.gov.mb.ca/news/index.html?item=49161&posted=2020-09-01,COVID-19 BULLETIN #174
-#collapse8
 https://news.gov.mb.ca/news/index.html?item=49157&posted=2020-08-31,COVID-19 BULLETIN #173
 https://news.gov.mb.ca/news/index.html?item=49141,COVID-19 BULLETIN #172
 https://news.gov.mb.ca/news/index.html?item=49139,COVID-19 BULLETIN #171
@@ -427,7 +408,6 @@ https://news.gov.mb.ca/news/index.html?item=48977&posted=2020-08-07,COVID-19 BUL
 https://news.gov.mb.ca/news/index.html?item=48937&posted=2020-08-06,COVID-19 BULLETIN #148
 https://news.gov.mb.ca/news/index.html?item=48917&posted=2020-08-05,COVID-19 BULLETIN #147
 https://news.gov.mb.ca/news/index.html?item=48897&posted=2020-08-04,COVID-19 BULLETIN #146
-#collapse7
 https://news.gov.mb.ca/news/index.html?item=48858&posted=2020-07-31,COVID-19 BULLETIN #145
 https://news.gov.mb.ca/news/index.html?item=48838&posted=2020-07-30,COVID-19 BULLETIN #144
 https://news.gov.mb.ca/news/index.html?item=48818&posted=2020-07-29,COVID-19 BULLETIN #143
@@ -451,7 +431,6 @@ https://news.gov.mb.ca/news/index.html?archive=&item=48558,COVID-19 BULLETIN #12
 https://news.gov.mb.ca/news/index.html?archive=&item=48555,COVID-19 BULLETIN #124
 https://news.gov.mb.ca/news/index.html?item=48552,COVID-19 BULLETIN #123
 https://news.gov.mb.ca/news/?archive=&item=48551,COVID-19 BULLETIN #122
-#collapse6
 https://news.gov.mb.ca/news/index.html?archive=&item=48544,COVID-19 BULLETIN #121
 https://news.gov.mb.ca/news/index.html?archive=&item=48537,COVID-19 BULLETIN #120
 https://news.gov.mb.ca/news/index.html?archive=&item=48520,COVID-19 BULLETIN #119
@@ -474,7 +453,6 @@ https://news.gov.mb.ca/news/index.html?archive=&item=48388,COVID-19 BULLETIN #10
 https://news.gov.mb.ca/news/index.html?archive=&item=48385,COVID-19 BULLETIN #101
 https://news.gov.mb.ca/news/index.html?archive=&item=48381,COVID-19 BULLETIN #100
 https://news.gov.mb.ca/news/index.html?item=48377&posted=2020-06-01,COVID-19 BULLETIN #99
-#collapse5
 https://news.gov.mb.ca/news/index.html?item=48367&posted=2020-05-31,COVID-19 BULLETIN #98
 https://news.gov.mb.ca/news/?archive=&item=48366,COVID-19 BULLETIN #97
 https://news.gov.mb.ca/news/?archive=&item=48362,COVID-19 BULLETIN #96
@@ -505,7 +483,6 @@ https://news.gov.mb.ca/news/index.html?item=47857&posted=2020-05-04,COVID-19 BUL
 https://news.gov.mb.ca/news/index.html?item=47797&posted=2020-05-03,COVID-19 BULLETIN #70
 https://news.gov.mb.ca/news/index.html?item=47757,COVID-19 BULLETIN #69
 https://news.gov.mb.ca/news/index.html?item=47697&posted=2020-05-01,COVID-19 BULLETIN #68
-#collapse4
 https://news.gov.mb.ca/news/index.html?item=47667,COVID-19 BULLETIN #67
 https://news.gov.mb.ca/news/index.html?item=47665,COVID-19 BULLETIN #66
 https://news.gov.mb.ca/news/index.html?item=47662,COVID-19 BULLETIN #65
@@ -535,7 +512,6 @@ https://news.gov.mb.ca/news/?archive=&item=47383,COVID-19 BULLETIN #41
 https://news.gov.mb.ca/news/?archive=&item=47381,COVID-19 BULLETIN #40
 https://news.gov.mb.ca/news/?archive=&item=47357,COVID-19 BULLETIN #39
 https://news.gov.mb.ca/news/?archive=&item=47346,COVID-19 BULLETIN #38
-#collapse3
 https://news.gov.mb.ca/news/?archive=&item=47342,COVID-19 BULLETIN #37
 https://news.gov.mb.ca/news/?archive=&item=47338,COVID-19 BULLETIN #36
 https://news.gov.mb.ca/news/?archive=&item=47317,COVID-19 BULLETIN #35
@@ -561,4 +537,3 @@ https://news.gov.mb.ca/news/index.html?item=46977,COVID-19 BULLETIN #15
 https://news.gov.mb.ca/news/index.html?item=46958,COVID-19 BULLETIN #14
 https://news.gov.mb.ca/news/index.html?item=46957,COVID-19 BULLETIN #13
 https://news.gov.mb.ca/news/index.html?item=46936,COVID-19 BULLETIN #12
-
