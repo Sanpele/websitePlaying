@@ -44,10 +44,10 @@ class mysql_table implements db_template {
         )";
         
         if ($this->conn->query($sql) === TRUE) {
-            echo "<p>Table Created or maybe already there<br>";
+            echo "<p>Table Created <br>";
         }
         else {
-            echo "<p>TABLE CREATION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
+            echo "<p>TABLE CREATION ERROR :	" . $sql . "<br>" . $this->conn->error . "<br>";
         }
     }
 
