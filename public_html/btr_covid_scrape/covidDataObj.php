@@ -20,7 +20,6 @@ class CovidData {
     
     public function __toString() {
         $out = "<tr>" . 
-        "<td>" . $this->id . "</td>" . 
         "<td>" . $this->bulletin_date . "</td>" . 
         "<td>" . $this->scraped_date . "</td>" . 
         "<td>" . $this->prov_test_rate . "</td>" . 

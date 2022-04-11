@@ -4,10 +4,9 @@ require_once("covidDataObj.php");
 
 $debug = FALSE;
 
-function get_document() {
+function get_document($my_url) {
     $file = fopen("info.txt","r");
     $my_key = trim(fgets($file));
-    $my_url = trim(fgets($file));
     fclose($file);
     
     $url = "http://api.scraperapi.com?api_key=$my_key&url=$my_url";
@@ -245,11 +244,6 @@ function get_data($whole, $update_date, $bug) {
 
 	// current day as int
 	$curr_day = intval(date('d', time()));
-
-	$update_file = fopen("last_update.txt", "w") or die("Unable to open last_update");
-	fwrite($update_file, $update_date);
-	fwrite($update_file, $curr_day);
-	fclose($update_file);
 
 	return $covid_today = new CovidData($date_id, $bull_date, $current_date, $current_prov_pos, $current_wpg_pos, $cases_second);
 

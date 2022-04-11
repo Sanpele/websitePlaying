@@ -43,10 +43,7 @@ class mysql_table implements db_template {
             scraped_date DATE
         )";
         
-        if ($this->conn->query($sql) === TRUE) {
-            echo "<p>Table Created <br>";
-        }
-        else {
+        if ($this->conn->query($sql) === FALSE) {
             echo "<p>TABLE CREATION ERROR :	" . $sql . "<br>" . $this->conn->error . "<br>";
         }
     }
