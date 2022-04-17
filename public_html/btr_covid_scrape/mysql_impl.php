@@ -61,13 +61,9 @@ class mysql_table implements db_template {
         $sql = "INSERT INTO $this->tableName (id, prov_rate, wpg_rate, daily_num, bulletin_date, scraped_date)
             VALUES ('$CovidDataObj->id', '$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->bulletin_date', '$CovidDataObj->scraped_date')";
 
-        if ($this->conn->query($sql) === TRUE) {
-            echo "<p> New Record Created Succesfully<br>";
-        }
-        else {
+        if ($this->conn->query($sql) === FALSE) {
             echo "<p> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
         }
-        
     }
 
     public function get ($id) {
@@ -77,7 +73,6 @@ class mysql_table implements db_template {
 
         $out;
         if ($row === TRUE) {
-            echo "Record RETRIEVED Succssfully";
             $out = new CovidData($row['id'], $row['bulletin_date'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num']);
         }
         else {
@@ -92,13 +87,9 @@ class mysql_table implements db_template {
         $sql = "DELETE FROM $this->tableName where id=$id";
         $result = $this->conn->query($sql);
 
-        if ($result === TRUE) {
-            echo "<br>" . "Record Deleted Succssfully";
-        }
-        else {
+        if ($result === FALSE) {
             echo "<br>" . "Error deleting record: " . $result->error;
         }
-
     }
 
 

@@ -14,22 +14,27 @@ function scrapeThings() {
 
     $covid_today = scrape_random();
     
-    $DB->insert($covid_today);
-    echo "<p> NEW DATA PRINTED BELOW";
-    echo "<br>" . $covid_today;
+    if (isset($covid_today)) {
+        $DB->insert($covid_today);
+        // echo "<p> NEW DATA PRINTED BELOW";
+        // echo "<br>" . $covid_today;
+    }
 }
 
-printHeader();
+// printHeader();
 
-printScrapeButton();
+// printScrapeButton();
+
+scrapeThings();
 
 if (isset($_POST['bull'])) {
     scrapeThings();
-    echo '<p> Hello World, Im gonna getcha' . 'br';
+    // unset($_POST['bull']);
+    echo '<p> Hello World, Im gonna getcha' . '<br>';
 }
 
-printAllTable($DB);
+// printAllTable($DB);
 
-printFooter();
+// printFooter();
 
 ?>

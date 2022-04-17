@@ -33,11 +33,16 @@ function scrape_random() {
 
     $pieces = explode(" ", $url);
 
-    $doc = get_document($pieces[0]);
+    $doc = parse_document($pieces[0]);
 
-    $covid_today = get_data($doc, $update_date, FALSE);
+    if (isset($doc)) {
+        $covid_today = get_data($doc, FALSE);
+        return $covid_today;
+    }
+    else
+        return NULL;
 
-    return $covid_today;
+
 }
 
 

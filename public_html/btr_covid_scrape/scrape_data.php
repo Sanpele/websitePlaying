@@ -20,6 +20,8 @@ function get_document($my_url) {
     $response = curl_exec($ch);
     curl_close($ch);
 
+	echo $response;
+
     return $response;
 }
 
@@ -170,22 +172,38 @@ function gen_date_id() {
 	return $date_id;
 }
 
-function parse_document() {
+function parse_document($my_url) {
 
-	// echo "<p class='p'> PARSING IS STARTING";
+	echo "<p class='p'> PARSING IS STARTING";
 
-	$response = get_document();
+	$response = get_document($my_url);
 
 	$dom = new DomDocument();
 	@$dom-> loadHTML($response);
+
 	$xpath = new DOMXpath($dom);
 	
-	$current = $xpath->query("//*[@id='coronavirus-current']"); // list  
-	
-	$whole = $current->item(1)->nodeValue."<br>";
-	$whole = str_replace("\xc2\xa0", ' ', $whole);
+	$current = $xpath->query("/html/body/div[6]/div/div/div[3]/div[1]/div/div[2]/div"); // list  
 
-	return $whole;
+	// echo $current;
+
+	if ($current->length > 0) {
+		foreach($current as $node) {
+			echo "{$node->nodeName} - {$node->nodeValue}";
+		}
+	}
+	else {
+		echo '<p> Empty Node list ';
+	}
+
+	echo $current;
+	
+	// $whole = $current->item(1)->nodeValue."<br>";
+	// $whole = str_replace("\xc2\xa0", ' ', $whole);
+
+	// echo $whole;
+
+	return NULL;
 
 }
 	
@@ -220,7 +238,7 @@ function check_new_update($whole, $bug) {
 	Parse provided document and return a covidDataObj with data from document.
 	
 */
-function get_data($whole, $update_date, $bug) {
+function get_data($whole, $bug) {
 
 	$current_date = date("Y-m-d");
 
