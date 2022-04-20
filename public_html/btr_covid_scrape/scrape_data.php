@@ -20,12 +20,26 @@ function get_document($my_url) {
     $response = curl_exec($ch);
     curl_close($ch);
 
-	echo $response;
+	// echo $response;
 
     return $response;
 }
 
+
+function clean($string) {
+	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+ 
+	return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+}
+
 function get_date($str) {
+
+    echo '<p>' . $str;
+
+	$str = clean($str);
+
+	echo '<p>' . $str;
+
 
 	$month_to_num = array(
 		"January" => 1,
@@ -42,23 +56,56 @@ function get_date($str) {
 		"December" => 12, 
 	);
 
-	$sample = "Last updated: ";
+	$sample = "COVID-19-BULLETIN";
 
 	$proper_start = strlen($sample);
-	$start_cutoff = strpos($str, $sample) + $proper_start;
+	$start_cutoff = strpos($str, $sample);
+    echo '<p> cutoff ' . $start_cutoff;
 	$max_length = strlen("February 16, 2022");
 	$cutoff = 0;
+    $num_space = 0;
 
-	$char = $str[$start_cutoff + $cutoff];
-	while((ord($char) >= '0' or ord($char) === 44 or ord($char) === 32) and $cutoff < $max_length) {
-		// echo "<p> $char";
+	$char = $str[$start_cutoff - $cutoff - 1];
+	while($num_space < 3) {
+		echo "<p> $char, next =" . $str[$start_cutoff - $cutoff-2];
+
+        // we have hit a -
+        if (ord($char) === 45) {
+            echo '<p> upping';
+            $num_space += 1;
+
+			while ($num_space < 3 and ord($str[$start_cutoff - $cutoff-2]) === 45) {
+				$cutoff++;
+				$char = $str[$start_cutoff - $cutoff-1];
+			}
+
+        }
+
 		$cutoff++;
-		$char = $str[$start_cutoff + $cutoff];
+		$char = $str[$start_cutoff - $cutoff-1];
 	}
 
-	$date_str = substr($str,$start_cutoff, $cutoff);
 
-	$plode = explode(" ", $date_str);
+	$date_str = substr($str,($start_cutoff - $cutoff + 8), $cutoff - 8);
+
+	$new_str = '';
+	$last_char = '';
+
+	// remove repeated - 
+	for ($i = 0; $i < strlen($date_str); $i++) {
+		if (ord($date_str[$i]) !== 45 or ord($last_char) !== 45) {
+			$new_str .= $date_str[$i];
+		}
+		$last_char = $date_str[$i];
+	}
+
+    echo '<p> start_cutoff = ' . $start_cutoff;
+    echo '<p> cutoff = ' . $cutoff;
+
+    echo '<p> date_str->>' . $date_str . '<---';
+
+	$plode = explode("-", $new_str);
+    print_r($plode);
 	$month = $month_to_num[$plode[0]];
 	$month_num = $month < 10 ? "0".$month : $month;
 	
@@ -67,12 +114,14 @@ function get_date($str) {
 	echo "<p> eq       : " . "February" === $plode[0];
 	echo "<p> len       : " . strlen("February");
 	echo "<p> len       : "  .strlen($plode[0]);
-	echo "<p> month_key : " . $month_key;
 	echo "<p> month_num : " . $month_num;
 
-	$final_date = $plode[2] . "-" . $month_num . "-" . substr($plode[1], 0, 2);
+    // day is 1 char or 2
+    $day = $plode[1][1] === ',' ? substr($plode[1], 0, 1) : substr($plode[1], 0, 2);
 
-	echo "<p> $final_date";
+	$final_date = $plode[2] . "-" . $month_num . "-" . $day;
+
+	// echo "<p> $final_date";
 
 	return $final_date;
 
@@ -183,27 +232,21 @@ function parse_document($my_url) {
 
 	$xpath = new DOMXpath($dom);
 	
-	$current = $xpath->query("/html/body/div[6]/div/div/div[3]/div[1]/div/div[2]/div"); // list  
+	$current = $xpath->query('//div[contains(@class,"col-inside-3")]'); // list  
 
-	// echo $current;
+	$whole = 'abc';
 
-	if ($current->length > 0) {
-		foreach($current as $node) {
-			echo "{$node->nodeName} - {$node->nodeValue}";
-		}
+	if ($current->length === 0) {
+		echo '<p> Empty Node list';
 	}
 	else {
-		echo '<p> Empty Node list ';
+		$whole = $current->item(0)->nodeValue."<br>";
+		$whole = str_replace("\xc2\xa0", ' ', $whole);
 	}
 
-	echo $current;
-	
-	// $whole = $current->item(1)->nodeValue."<br>";
-	// $whole = str_replace("\xc2\xa0", ' ', $whole);
+	echo $whole;
 
-	// echo $whole;
-
-	return NULL;
+	return $whole;
 
 }
 	
@@ -247,7 +290,7 @@ function get_data($whole, $bug) {
 	$bull_date = get_date($whole);
 	// $current_cases = get_val_after($whole, "cases today", "485");
 	
-	$cases_second = get_val_before($whole, "cases today", "123", $bug);
+	$cases_second = get_val_before($whole, "cases today to", "123", $bug);
 
 	if ($bug == TRUE) {
 		echo "Date = $current_date"."<br>";

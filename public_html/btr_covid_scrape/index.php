@@ -8,12 +8,16 @@ $db_info = "mysql_info.txt";
 $DB = new mysql_table($db_info);
 
 function scrapeThings() {
+
+    echo '<p> Scraping Things </br>';
     
     $db_info = "mysql_info.txt";
     $DB = new mysql_table($db_info);
 
     $covid_today = scrape_random();
-    
+    echo $covid_today;
+
+
     if (isset($covid_today)) {
         $DB->insert($covid_today);
         // echo "<p> NEW DATA PRINTED BELOW";
@@ -21,20 +25,20 @@ function scrapeThings() {
     }
 }
 
-// printHeader();
+printHeader();
 
-// printScrapeButton();
+printScrapeButton();
 
 scrapeThings();
 
 if (isset($_POST['bull'])) {
     scrapeThings();
-    // unset($_POST['bull']);
+    unset($_POST['bull']);
     echo '<p> Hello World, Im gonna getcha' . '<br>';
 }
 
-// printAllTable($DB);
+printAllTable($DB);
 
-// printFooter();
+printFooter();
 
 ?>

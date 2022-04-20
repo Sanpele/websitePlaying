@@ -18,7 +18,7 @@ function scrape_random() {
     $file_path = "complet_url.txt";
     $lines = count(file($file_path));
 
-    $url_num = rand(300, 400);
+    $url_num = rand(227, 227);
 
     $url = "";
 
@@ -33,6 +33,8 @@ function scrape_random() {
 
     $pieces = explode(" ", $url);
 
+    print_r($pieces);
+
     $doc = parse_document($pieces[0]);
 
     if (isset($doc)) {
@@ -41,8 +43,6 @@ function scrape_random() {
     }
     else
         return NULL;
-
-
 }
 
 
