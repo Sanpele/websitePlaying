@@ -2,8 +2,6 @@
 
 I am using this website to learn more about web programming, managing a continously growing project on github and just for fun.
 
-Website -> http://www.colinwaugh.com/
-
 ## In the works
 
 I finally finished my covid scraping code 3 days before the province of manitoba changed the data they posted...
