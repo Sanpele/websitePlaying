@@ -13,7 +13,8 @@ class mysql_table implements db_template {
     private $conn;
 
     private $tableName = "covidAttemptTestNew";
-    
+
+
     public function __construct() {
 
         $file = fopen("mysql_info.txt","r");
@@ -23,7 +24,14 @@ class mysql_table implements db_template {
         $this->dbname = trim(fgets($file));
         fclose($file);
 
+        // echo '<p> servername : ' . $this->servername . '</p>';
+
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+
+        if ($this->conn === FALSE) {
+            echo "<p>Initial connection error :	" . $sql . "<br>" . $this->conn->error . "<br>";
+            return;
+        }
 
         $val = $this->conn->query('select 1 from $this->tableName LIMIT 1');
         if($val === FALSE)
@@ -42,8 +50,12 @@ class mysql_table implements db_template {
             bulletin_date DATE,
             scraped_date DATE
         )";
+
+
         
         if ($this->conn->query($sql) === FALSE) {
+
+            echo '<p> servername : ' . $sql . '</p>';
             echo "<p>TABLE CREATION ERROR :	" . $sql . "<br>" . $this->conn->error . "<br>";
         }
     }
@@ -66,6 +78,7 @@ class mysql_table implements db_template {
         }
     }
 
+
     public function get ($id) {
         $sql = "SELECT FROM $this->tableName where id=$id";
         $row = $this->conn->query($sql);
@@ -81,6 +94,7 @@ class mysql_table implements db_template {
 
         return $out;
     }
+
 
     public function delete ($id) {
 
