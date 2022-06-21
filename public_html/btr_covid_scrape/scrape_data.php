@@ -288,16 +288,16 @@ function get_data($whole, $bug) {
 	$current_prov_pos = get_val_after($whole, "rate is ", "10.5", $bug);
 	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
 	$bull_date = get_date($whole);
-	// $current_cases = get_val_after($whole, "cases today", "485");
+	$current_cases = get_val_after($whole, "cases today to ", "481", $bug);
 	
-	$cases_second = get_val_before($whole, "cases today to", "123", $bug);
+	// $cases_second = get_val_before($whole, "cases today to", "123", $bug);
 
 	if ($bug == TRUE) {
 		echo "Date = $current_date"."<br>";
 		echo "prov test rate = $current_prov_pos"."<br>";
 		echo "wpg test rate = $current_wpg_pos"."<br>";
 		// echo "corrected # cases = $current_cases"."<br>";
-		echo "second attempt cases = $cases_second" . "<br>";
+		echo "second attempt cases = $current_cases" . "<br>";
 	}
 
 	// unique value going to be DB id
@@ -306,7 +306,7 @@ function get_data($whole, $bug) {
 	// current day as int
 	$curr_day = intval(date('d', time()));
 
-	return $covid_today = new CovidData($date_id, $bull_date, $current_date, $current_prov_pos, $current_wpg_pos, $cases_second);
+	return $covid_today = new CovidData($date_id, $bull_date, $current_date, $current_prov_pos, $current_wpg_pos, $current_cases);
 
 }
 
