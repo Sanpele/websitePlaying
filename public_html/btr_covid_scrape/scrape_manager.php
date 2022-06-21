@@ -38,7 +38,7 @@ function scrape_random() {
     $doc = parse_document($pieces[0]);
 
     if (isset($doc)) {
-        $covid_today = get_data($doc, FALSE);
+        $covid_today = get_data($doc, $pieces[0], FALSE);
         return $covid_today;
     }
     else

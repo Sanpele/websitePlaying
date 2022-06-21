@@ -44,9 +44,11 @@ class mysql_table implements db_template {
 
         $sql = "CREATE TABLE IF NOT EXISTS $this->tableName (
             id INT NOT NULL AUTO_INCREMENT,
+            bulletin_number INT(4) NOT NULL,
+            bulletin_url VARCHAR(250) NOT NULL, 
             prov_rate DECIMAL(3,1) NOT NULL, 
             wpg_rate DECIMAL(3,1) NOT NULL,
-            daily_num int(4) NOT NULL,
+            daily_num INT(4) NOT NULL,
             bulletin_date DATE,
             scraped_date DATE,
             PRIMARY KEY (id)
@@ -71,8 +73,8 @@ class mysql_table implements db_template {
         //     $this->delete($CovidDataObj->id);
         // }
         
-        $sql = "INSERT INTO $this->tableName (prov_rate, wpg_rate, daily_num, bulletin_date, scraped_date)
-            VALUES ('$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->bulletin_date', '$CovidDataObj->scraped_date')";
+        $sql = "INSERT INTO $this->tableName (prov_rate, wpg_rate, daily_num, bulletin_number, bulletin_url, bulletin_date, scraped_date)
+            VALUES ('$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->bulletin_number', '$CovidDataObj->bulletin_url', '$CovidDataObj->bulletin_date', '$CovidDataObj->scraped_date')";
 
         if ($this->conn->query($sql) === FALSE) {
             echo "<p> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
@@ -119,7 +121,7 @@ class mysql_table implements db_template {
         $out = [];
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc())
-                $out[] = new CovidData( $row['bulletin_date'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num'], $row['id']);           
+                $out[] = new CovidData( $row['bulletin_date'], $row['bulletin_number'], $row['bulletin_url'], $row['scraped_date'], $row['prov_rate'], $row['wpg_rate'], $row['daily_num'], $row['id']);           
         }
         return $out;
     }

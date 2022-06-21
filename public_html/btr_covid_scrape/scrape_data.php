@@ -290,11 +290,22 @@ function check_new_update($whole, $bug) {
 	}
 }
 
+
+/*
+
+	Grab the bulletin humber
+
+*/
+function get_bulletin_number($whole, $bug) {
+
+	return 227;
+}
+
 /*
 	Parse provided document and return a covidDataObj with data from document.
 	
 */
-function get_data($whole, $bug) {
+function get_data($whole, $url, $bug) {
 
 	$current_date = date("Y-m-d");
 
@@ -302,6 +313,9 @@ function get_data($whole, $bug) {
 	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
 	$bull_date = get_date($whole, $bug);
 	$current_cases = get_val_after($whole, "cases today to ", "481", $bug);
+
+	$bulletin_number = get_bulletin_number($whole, $bug);
+	$bulletin_url = $url;
 	
 	// $cases_second = get_val_before($whole, "cases today to", "123", $bug);
 
