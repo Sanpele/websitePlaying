@@ -43,12 +43,13 @@ class mysql_table implements db_template {
     public function createDB() {
 
         $sql = "CREATE TABLE IF NOT EXISTS $this->tableName (
-            id INT(9) NOT NULL PRIMARY KEY,
+            id INT NOT NULL AUTO_INCREMENT,
             prov_rate DECIMAL(3,1) NOT NULL, 
             wpg_rate DECIMAL(3,1) NOT NULL,
             daily_num int(4) NOT NULL,
             bulletin_date DATE,
-            scraped_date DATE
+            scraped_date DATE,
+            PRIMARY KEY (id)
         )";
 
 
