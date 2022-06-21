@@ -15,13 +15,13 @@ function printScrapeButton() {
 }
 
 function printAllTable($DB) {
-    echo '<table border="0" cellspacing="2" cellpadding="2"> 
+    echo '<table class="covidResults" border="0" cellspacing="2" cellpadding="2"> 
     <tr> 
-        <td> <font face="Arial">bulletin date</font> </td> 
-        <td> <font face="Arial">scraped date</font> </td> 
-        <td> <font face="Arial">prov test rate</font> </td> 
-        <td> <font face="Arial">wpg test rate</font> </td> 
-        <td> <font face="Arial">case number</font> </td> 
+        <td> <font face="Arial">Bulletin Date date</font> </td> 
+        <td> <font face="Arial">Scraped Date</font> </td> 
+        <td> <font face="Arial">Prov Test Rate</font> </td> 
+        <td> <font face="Arial">WPG Test Rate</font> </td> 
+        <td> <font face="Arial">Case Number</font> </td> 
     </tr>';
     # GET ALL RECORDED VALUES
     $out = $DB->getAll();
