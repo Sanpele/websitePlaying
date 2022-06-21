@@ -313,13 +313,10 @@ function get_data($whole, $bug) {
 		echo "second attempt cases = $current_cases" . "<br>";
 	}
 
-	// unique value going to be DB id
-	$date_id = gen_date_id();
-
 	// current day as int
 	$curr_day = intval(date('d', time()));
 
-	return $covid_today = new CovidData($date_id, $bull_date, $current_date, $current_prov_pos, $current_wpg_pos, $current_cases);
+	return $covid_today = new CovidData( $bull_date, $current_date, $current_prov_pos, $current_wpg_pos, $current_cases);
 
 }
 

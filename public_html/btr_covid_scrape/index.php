@@ -18,8 +18,8 @@ function scrapeThings() {
 
     if (isset($covid_today)) {
         $DB->insert($covid_today);
-        // echo "<p> NEW DATA PRINTED BELOW";
-        // echo "<br>" . $covid_today;
+        echo "<p> NEW DATA PRINTED BELOW";
+        echo "<br>" . $covid_today;
     }
 }
 

@@ -9,17 +9,18 @@ class CovidData {
     public $wpg_test_rate; // winnipeg test rate %
     public $todays_cases; // number of new cases recorded today
 
-    public function __construct($id, $bul_date, $t_date, $prov, $wpg, $today) {
-        $this->id = $id;
+    public function __construct($bul_date, $t_date, $prov, $wpg, $today, $id=-1) {
         $this->bulletin_date = $bul_date;
         $this->scraped_date = $t_date;
         $this->prov_test_rate = $prov;
         $this->wpg_test_rate = $wpg;
         $this->todays_cases = $today;
+        $this->id = $id;
     }
     
     public function __toString() {
         $out = "<tr>" . 
+        "<td>" . $this->id . "</td>" . 
         "<td>" . $this->bulletin_date . "</td>" . 
         "<td>" . $this->scraped_date . "</td>" . 
         "<td>" . $this->prov_test_rate . "</td>" . 
