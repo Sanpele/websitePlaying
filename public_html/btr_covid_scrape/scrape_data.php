@@ -32,13 +32,17 @@ function clean($string) {
 	return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 }
 
-function get_date($str) {
+function get_date($str, $bug) {
 
-    echo '<p>' . $str;
+	if ($bug) {
+		echo '<p>' . $str;
+	}
 
 	$str = clean($str);
 
-	echo '<p>' . $str;
+	if ($bug) {
+		echo '<p>' . $str;
+	}
 
 
 	$month_to_num = array(
@@ -60,18 +64,20 @@ function get_date($str) {
 
 	$proper_start = strlen($sample);
 	$start_cutoff = strpos($str, $sample);
-    echo '<p> cutoff ' . $start_cutoff;
+
 	$max_length = strlen("February 16, 2022");
 	$cutoff = 0;
     $num_space = 0;
 
 	$char = $str[$start_cutoff - $cutoff - 1];
 	while($num_space < 3) {
-		echo "<p> $char, next =" . $str[$start_cutoff - $cutoff-2];
+		if ($bug) {
+			echo "<p> $char, next =" . $str[$start_cutoff - $cutoff-2];
+		}
 
         // we have hit a -
         if (ord($char) === 45) {
-            echo '<p> upping';
+
             $num_space += 1;
 
 			while ($num_space < 3 and ord($str[$start_cutoff - $cutoff-2]) === 45) {
@@ -99,22 +105,29 @@ function get_date($str) {
 		$last_char = $date_str[$i];
 	}
 
-    echo '<p> start_cutoff = ' . $start_cutoff;
-    echo '<p> cutoff = ' . $cutoff;
-
-    echo '<p> date_str->>' . $date_str . '<---';
 
 	$plode = explode("-", $new_str);
-    print_r($plode);
+
+	if ($bug) {
+		echo '<p> start_cutoff = ' . $start_cutoff;
+		echo '<p> cutoff = ' . $cutoff;
+		echo '<p> date_str->>' . $date_str . '<---';	
+		print_r($plode);
+	}
+
+
+
 	$month = $month_to_num[$plode[0]];
 	$month_num = $month < 10 ? "0".$month : $month;
-	
-	echo "<p> plode[0] : " . $plode[0] . "<-";
-	echo "<p> fromArr  : " . $month_to_num["February"] . "<-";
-	echo "<p> eq       : " . "February" === $plode[0];
-	echo "<p> len       : " . strlen("February");
-	echo "<p> len       : "  .strlen($plode[0]);
-	echo "<p> month_num : " . $month_num;
+
+	if ($bug) {
+		echo "<p> plode[0] : " . $plode[0] . "<-";
+		echo "<p> fromArr  : " . $month_to_num["February"] . "<-";
+		echo "<p> eq       : " . "February" === $plode[0];
+		echo "<p> len       : " . strlen("February");
+		echo "<p> len       : "  .strlen($plode[0]);
+		echo "<p> month_num : " . $month_num;
+	}
 
     // day is 1 char or 2
     $day = $plode[1][1] === ',' ? substr($plode[1], 0, 1) : substr($plode[1], 0, 2);
@@ -223,7 +236,7 @@ function gen_date_id() {
 
 function parse_document($my_url) {
 
-	echo "<p class='p'> PARSING IS STARTING";
+	// echo "<p class='p'> PARSING IS STARTING";
 
 	$response = get_document($my_url);
 
@@ -244,7 +257,7 @@ function parse_document($my_url) {
 		$whole = str_replace("\xc2\xa0", ' ', $whole);
 	}
 
-	echo $whole;
+	// echo $whole;
 
 	return $whole;
 
@@ -287,7 +300,7 @@ function get_data($whole, $bug) {
 
 	$current_prov_pos = get_val_after($whole, "rate is ", "10.5", $bug);
 	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
-	$bull_date = get_date($whole);
+	$bull_date = get_date($whole, $bug);
 	$current_cases = get_val_after($whole, "cases today to ", "481", $bug);
 	
 	// $cases_second = get_val_before($whole, "cases today to", "123", $bug);

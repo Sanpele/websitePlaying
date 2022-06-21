@@ -15,8 +15,6 @@ function scrapeThings() {
     $DB = new mysql_table($db_info);
 
     $covid_today = scrape_random();
-    echo '<p> COVID TODAY : ' . $covid_today . '</p>' ;
-
 
     if (isset($covid_today)) {
         $DB->insert($covid_today);
