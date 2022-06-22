@@ -4,6 +4,8 @@ class CovidData {
 
     public $id; // Unique identifer each day so we don't have repeated values for date.
     public $bulletin_date; // String date. YYYY-MM-DD
+    public $bulletin_number; // int bulletin number
+    public $bulletin_url; // string url for bulletin
     public $scraped_date; // String date. YYYY-MM-DD
     public $prov_test_rate; // provincial test rate %
     public $wpg_test_rate; // winnipeg test rate %
@@ -11,9 +13,8 @@ class CovidData {
 
     public function __construct($bul_date, $bul_number, $bul_url, $t_date, $prov, $wpg, $today, $id=-1) {
         $this->bulletin_date = $bul_date;
-        $this->bulletin_number = $bul_date;
-        $this->bulletin_url = $bul_date;
-
+        $this->bulletin_number = $bul_number;
+        $this->bulletin_url = $bul_url;
         $this->scraped_date = $t_date;
         $this->prov_test_rate = $prov;
         $this->wpg_test_rate = $wpg;

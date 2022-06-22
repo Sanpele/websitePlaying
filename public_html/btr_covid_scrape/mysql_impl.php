@@ -12,7 +12,7 @@ class mysql_table implements db_template {
     
     private $conn;
 
-    private $tableName = "covidAttemptTestNew";
+    private $tableName = "covid_daily_info";
 
 
     public function __construct() {

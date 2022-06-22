@@ -290,17 +290,6 @@ function check_new_update($whole, $bug) {
 	}
 }
 
-
-/*
-
-	Grab the bulletin humber
-
-*/
-function get_bulletin_number($whole, $bug) {
-
-	return 227;
-}
-
 /*
 	Parse provided document and return a covidDataObj with data from document.
 	
@@ -313,25 +302,34 @@ function get_data($whole, $url, $bug) {
 	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
 	$bull_date = get_date($whole, $bug);
 	$current_cases = get_val_after($whole, "cases today to ", "481", $bug);
-
-	$bulletin_number = get_bulletin_number($whole, $bug);
+	$bulletin_number = get_val_after($whole, "COVID-19 BULLETIN #", "333", $bug);
 	$bulletin_url = $url;
 	
 	// $cases_second = get_val_before($whole, "cases today to", "123", $bug);
 
 	if ($bug == TRUE) {
+		echo "WHOLE = " . $whole;
+
 		echo "Date = $current_date"."<br>";
 		echo "prov test rate = $current_prov_pos"."<br>";
 		echo "wpg test rate = $current_wpg_pos"."<br>";
 		// echo "corrected # cases = $current_cases"."<br>";
 		echo "second attempt cases = $current_cases" . "<br>";
+		echo "bulletin_number = $bulletin_number" . "<br>";
+		echo "bulletin_url = $bulletin_url" . "<br>";
+
 	}
 
 	// current day as int
 	$curr_day = intval(date('d', time()));
 
-	return $covid_today = new CovidData( $bull_date, $current_date, $current_prov_pos, $current_wpg_pos, $current_cases);
+	$covid_today = new CovidData( $bull_date, $bulletin_number, $bulletin_url, $current_date, $current_prov_pos, $current_wpg_pos, $current_cases);
 
+	if ($bug === TRUE) {
+		echo $covid_today;
+	}
+
+	return $covid_today;
 }
 
 /*

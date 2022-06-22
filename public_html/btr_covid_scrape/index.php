@@ -9,7 +9,7 @@ $DB = new mysql_table($db_info);
 
 function scrapeThings() {
 
-    echo '<p> Scraping Things </br>';
+    // echo '<p> Scraping Things </br>';
     
     $db_info = "mysql_info.txt";
     $DB = new mysql_table($db_info);
@@ -18,8 +18,8 @@ function scrapeThings() {
 
     if (isset($covid_today)) {
         $DB->insert($covid_today);
-        echo "<p> NEW DATA PRINTED BELOW";
-        echo "<br>" . $covid_today;
+        // echo "<p> NEW DATA PRINTED BELOW";
+        // echo "<br>" . $covid_today;
     }
 }
 
