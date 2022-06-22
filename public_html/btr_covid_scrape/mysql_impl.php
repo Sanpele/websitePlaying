@@ -124,7 +124,7 @@ class mysql_table implements db_template {
     */
     public function getAll () {
 
-        $sql = "SELECT * FROM $this->tableName";
+        $sql = "SELECT * FROM $this->tableName ORDER BY bulletin_number";
         $result = $this->conn->query($sql);
 
         $out = [];
