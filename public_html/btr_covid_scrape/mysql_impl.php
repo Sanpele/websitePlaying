@@ -66,19 +66,28 @@ class mysql_table implements db_template {
 
     public function insert ($CovidDataObj) {
 
-        // $check_already = $this->conn->query("SELECT * from $this->tableName WHERE id = $CovidDataObj->id");
+        $check_already = $this->conn->query("SELECT * from $this->tableName WHERE bulletin_number = $CovidDataObj->bulletin_number");
 
-        // if (mysqli_num_rows($check_already) > 0) {
-        //     // echo "<p class = 'p'> Data already recorded today <br>";
-        //     $this->delete($CovidDataObj->id);
-        // }
-        
-        $sql = "INSERT INTO $this->tableName (prov_rate, wpg_rate, daily_num, bulletin_number, bulletin_url, bulletin_date, scraped_date)
+
+        echo mysqli_num_rows($check_already);
+
+        // Not Inserted already, add
+        if (mysqli_num_rows($check_already) == 0) {
+            $sql = "INSERT INTO $this->tableName (prov_rate, wpg_rate, daily_num, bulletin_number, bulletin_url, bulletin_date, scraped_date)
             VALUES ('$CovidDataObj->prov_test_rate', '$CovidDataObj->wpg_test_rate', '$CovidDataObj->todays_cases', '$CovidDataObj->bulletin_number', '$CovidDataObj->bulletin_url', '$CovidDataObj->bulletin_date', '$CovidDataObj->scraped_date')";
 
-        if ($this->conn->query($sql) === FALSE) {
-            echo "<p> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
+            $insert_success = $this->conn->query($sql);
+            if (!$insert_success) {
+                echo "<p> INSERTION ERROR Error:	" . $sql . "<br>" . $this->conn->error . "<br>";
+            }
         }
+        // Already present, don't add 
+        else {
+            echo "<p class = 'p'> Data already recorded today <br>";
+            // $this->delete($CovidDataObj->id);
+        }
+        
+
     }
 
 

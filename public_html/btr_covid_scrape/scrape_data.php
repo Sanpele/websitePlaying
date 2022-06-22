@@ -301,11 +301,16 @@ function get_data($whole, $url, $bug) {
 	$current_prov_pos = get_val_after($whole, "rate is ", "10.5", $bug);
 	$current_wpg_pos = get_val_after($whole, "provincially and ", "12.6", $bug);
 	$bull_date = get_date($whole, $bug);
+
+	// Function to try couple case numbers
 	$current_cases = get_val_after($whole, "cases today to ", "481", $bug);
+	// before ' new cases of the '
+	// $cases_second = get_val_before($whole, "cases today to", "123", $bug);
+
+
 	$bulletin_number = get_val_after($whole, "COVID-19 BULLETIN #", "333", $bug);
 	$bulletin_url = $url;
 	
-	// $cases_second = get_val_before($whole, "cases today to", "123", $bug);
 
 	if ($bug == TRUE) {
 		echo "WHOLE = " . $whole;
