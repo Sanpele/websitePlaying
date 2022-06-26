@@ -21,8 +21,8 @@ function scrapeThings() {
 
         printInitialResult($covid_today);
 
-        echo "<p> NEW DATA PRINTED BELOW";
-        echo "<br>" . $covid_today;
+        // echo "<p> NEW DATA PRINTED BELOW";
+        // echo "<br>" . $covid_today;
     }
 }
 

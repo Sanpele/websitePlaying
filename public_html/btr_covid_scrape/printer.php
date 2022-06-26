@@ -15,6 +15,8 @@ function printScrapeButton() {
 }
 
 function printAllTable($DB) {
+
+    echo '<h3>All previous values:</h3>';
     echo '<table class="covidResults" border="0" cellspacing="2" cellpadding="2"> 
     <tr> 
         <td> <font face="Arial">ID</font> </td> 
@@ -34,9 +36,10 @@ function printAllTable($DB) {
 }
 
 function printInitialResult($covid_today) {
+
+    echo '<h3>The following was just scraped:</h3>';
     echo '<table class="covidResults" border="0" cellspacing="2" cellpadding="2"> 
     <tr>
-        <p>The following was just scraped </p> 
         <td> <font face="Arial">ID</font> </td> 
         <td> <font face="Arial">Bulletin Date</font> </td> 
         <td> <font face="Arial">Bulletin Number</font> </td> 
