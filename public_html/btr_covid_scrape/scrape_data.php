@@ -290,6 +290,20 @@ function check_new_update($whole, $bug) {
 	}
 }
 
+function get_cases($whole, $bug) {
+
+	$first_go = intval(get_val_after($whole, "cases today to ", "481", $bug));
+
+	if ($first_go !== 0) 
+		return $first_go;
+
+	$second_go = intval(get_val_after($whole, "new cases of ", "481", $bug));
+
+	if ($second_go !== 0)
+		return $second_go;
+
+}
+
 /*
 	Parse provided document and return a covidDataObj with data from document.
 	
@@ -303,10 +317,9 @@ function get_data($whole, $url, $bug) {
 	$bull_date = get_date($whole, $bug);
 
 	// Function to try couple case numbers
-	$current_cases = get_val_after($whole, "cases today to ", "481", $bug);
+	$current_cases = get_cases($whole, $bug);
+	
 	// before ' new cases of the '
-	// $cases_second = get_val_before($whole, "cases today to", "123", $bug);
-
 
 	$bulletin_number = get_val_after($whole, "COVID-19 BULLETIN #", "333", $bug);
 	$bulletin_url = $url;
