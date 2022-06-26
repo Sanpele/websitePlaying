@@ -30,6 +30,27 @@ function printAllTable($DB) {
     foreach ($out as &$value) {
         echo $value;
     }
+    echo '</table>';
+}
+
+function printInitialResult($covid_today) {
+    echo '<table class="covidResults" border="0" cellspacing="2" cellpadding="2"> 
+    <tr>
+        <p>The following was just scraped </p> 
+        <td> <font face="Arial">ID</font> </td> 
+        <td> <font face="Arial">Bulletin Date</font> </td> 
+        <td> <font face="Arial">Bulletin Number</font> </td> 
+        <td> <font face="Arial">Scraped Date</font> </td> 
+        <td> <font face="Arial">Prov Test Rate</font> </td> 
+        <td> <font face="Arial">WPG Test Rate</font> </td> 
+        <td> <font face="Arial">Case Number</font> </td> 
+    </tr>';
+
+    echo $covid_today;
+
+    echo '</table><br>' ;
+
+
 }
 
 function printHeader() {
